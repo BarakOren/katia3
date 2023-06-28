@@ -86,7 +86,6 @@ const Sphere = styled.img`
 
 const SphereDiv = (props) => {
 
-    const [test, setTest] = useState(false)
 
     const {ChangeAnimation, animation, SphereAnimation, Divsizing, size, totalValue, position, name} = props;
 

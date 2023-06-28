@@ -55,7 +55,7 @@ const ScrollBar = styled.div`
 
 const LeftSideContainer = (props) => {
 
-    const {bodyRef, setAnimation, leftSideToggle, setLeftSideToggle, setAfterEverything, animationText, animation, play, setPlay} = props
+    const { bodyRef, setAnimation, leftSideToggle, setLeftSideToggle, setAfterEverything, animationText, animation, play, setPlay} = props
     
     useEffect(() => {
         if(animation !== null){
@@ -69,7 +69,7 @@ const LeftSideContainer = (props) => {
         
     <Relative>
         <Middle>
-        <Icons setAnimation={setAnimation} bodyRef={bodyRef} />
+        <Icons animation={animation} setAnimation={setAnimation} bodyRef={bodyRef} />
         <TextArea animationText={animationText} />
         <ScrollLine />
         </Middle>

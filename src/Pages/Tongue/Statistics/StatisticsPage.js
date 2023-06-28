@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { animated, useSpring } from '@react-spring/web'
 import SphereDiv from "./Spheres/SphereDiv"
 import AfterEverything from "../../../afterEverything/AfterEverything"
+import { AnimationUtils } from "three"
 
 
 const Container = styled.div`
@@ -88,25 +89,25 @@ const StatisticsPage = (props) => {
             setSphereThreePosition({top: '65%', left: '40%'})
             setSphereFourPosition({top: '68%', left: '60%'})
         }
-        else if (animation === "Tuberculosis"){
+        else if (animation === "Stomatitis"){
             setSphereOnePosition(focusPosition)
             setSphereTwoPosition(SphereTwoOffScreen)
             setSphereThreePosition(SphereThreeOffScreen)
             setSphereFourPosition(SphereFourOffScreen)
         }
-        else if (animation === "Cancer"){
+        else if (animation === "Bad smell"){
             setSphereOnePosition(SphereOneOffScreen)
             setSphereTwoPosition(focusPosition)
             setSphereThreePosition(SphereThreeOffScreen)
             setSphereFourPosition(SphereFourOffScreen)
         }
-        else if (animation === "Asthma"){
+        else if (animation === "Loss of taste"){
             setSphereOnePosition(SphereOneOffScreen)
             setSphereTwoPosition(SphereTwoOffScreen)
             setSphereThreePosition(focusPosition)
             setSphereFourPosition(SphereFourOffScreen)
         }
-        else if (animation === "Lung collapse"){
+        else if (animation === "Plaque"){
             setSphereOnePosition(SphereOneOffScreen)
             setSphereTwoPosition(SphereTwoOffScreen)
             setSphereThreePosition(SphereThreeOffScreen)
@@ -123,7 +124,7 @@ const StatisticsPage = (props) => {
 
     <SphereDiv
     Divsizing={Divsizing / 5}
-    name={"Tuberculosis"}
+    name={"Stomatitis"}
     SphereAnimation={SphereAnimation} 
     totalValue={totalValue}
     position={SphereOnePosition}
@@ -133,7 +134,7 @@ const StatisticsPage = (props) => {
     <SphereDiv
     Divsizing={Divsizing}
     animation={animation}
-    name={"Cancer"}
+    name={"Bad smell"}
     SphereAnimation={SphereAnimation} 
     totalValue={totalValue}
     position={SphereTwoPosition}
@@ -143,7 +144,7 @@ const StatisticsPage = (props) => {
     
     <SphereDiv
     Divsizing={Divsizing / 1.5}
-    name={"Asthma"}
+    name={"Loss of taste"}
     SphereAnimation={SphereAnimation} 
     totalValue={totalValue}
     position={SphereThreePosition}
@@ -152,7 +153,7 @@ const StatisticsPage = (props) => {
     
     <SphereDiv
     Divsizing={Divsizing / 6}
-    name={"Lung collapse"}
+    name={"Plaque"}
     SphereAnimation={SphereAnimation} 
     totalValue={totalValue}
     position={SphereFourPosition}
@@ -164,7 +165,7 @@ const StatisticsPage = (props) => {
     
     </ModelContainer>
 
-    <LeftSideContainer bodyRef={bodyRef} setAnimation={setAnimation} leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} setAfterEverything={setAfterEverything} animationText={animationText} animation={animation} />
+    <LeftSideContainer animation={animation} bodyRef={bodyRef} setAnimation={setAnimation} leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} setAfterEverything={setAfterEverything} animationText={animationText} animation={animation} />
 
     <AfterEverything leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} />
 

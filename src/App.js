@@ -139,6 +139,15 @@ function App() {
         else if(name === "Cancer" && location === "/teeth"){
           setAnimationText({title: "Cancer", text: Texts.mouthCancer}); return
         }
+        else if(name === "Bad smell"){
+          setAnimationText({title: "Bad smell", text: Texts.BadSmell}); return
+        }
+        else if(name === "Loss of taste"){
+          setAnimationText({title: "Loss of taste", text: Texts.LossOfTaste}); return
+        }
+        else if(name === "Loss of taste"){
+          setAnimationText({title: "Loss of taste", text: Texts.LossOfTaste}); return
+        }
         
         setAnimationText({title: name, text: Texts[name]})
       } else {

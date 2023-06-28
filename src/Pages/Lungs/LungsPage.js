@@ -1,5 +1,5 @@
 import styled from "styled-components"
-// import background from '../../Assets/lungsBG.gif';
+import background from '../../Assets/lungsbg.mp4';
 import SideControls from "../../Components/SideControls/SideControls";
 import ModelViewer from "./Model/ModelViewer"
 import { useState } from "react";
@@ -67,9 +67,9 @@ const GitBackground = styled.img`
     height: auto;
 `
 
-// <BackgroundVideo autoPlay loop muted>
-//         <source src={background} type='video/mp4' />
-//     </BackgroundVideo>
+// <GitBackground src={'https://s12.gifyu.com/images/SQaHl.gif'} alt="bg" />
+
+
 
 const LungsPage = (props) => {
 
@@ -79,7 +79,10 @@ const LungsPage = (props) => {
     
     <BackgroundContainer>
     <BlackShade />
-    <GitBackground src={'https://s12.gifyu.com/images/SQaHl.gif'} alt="bg" />
+    
+    <BackgroundVideo autoPlay loop muted>
+        <source src={background} type='video/mp4' />
+    </BackgroundVideo>
     </BackgroundContainer>
 
     <Circle size={20} opacity={0.7}/>

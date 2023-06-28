@@ -4,6 +4,8 @@ import SideControls from "../../Components/SideControls/SideControls";
 import ModelViewer from "./Model/ModelViewer"
 import { useState } from "react";
 import StatisticsPage from "./Statistics/StatisticsPage";
+import background from '../../Assets/lungsbg.mp4';
+
 
 const Container = styled.div`
     width: 100vw;
@@ -79,7 +81,9 @@ const TeethPage = (props) => {
     
     <BackgroundContainer>
     <BlackShade />
-    <GitBackground src={'https://s12.gifyu.com/images/SQaHl.gif'} alt="bg" />
+    <BackgroundVideo autoPlay loop muted>
+        <source src={background} type='video/mp4' />
+    </BackgroundVideo>
     </BackgroundContainer>
 
     <Circle size={20} opacity={0.7}/>
