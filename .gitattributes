@@ -1,0 +1,4 @@
+*PinkSphere.gif filter=lfs diff=lfs merge=lfs -text
+“*PinkSphere.gif” filter=lfs diff=lfs merge=lfs -text
+“*PurpleSphere.gif” filter=lfs diff=lfs merge=lfs -text
+“*BlueSphere.gif” filter=lfs diff=lfs merge=lfs -text
