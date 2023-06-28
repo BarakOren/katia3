@@ -53,14 +53,14 @@ const {totalValue} = props;
 
 
 // totalValue={totalValue}
-const ModelViewer = (props, { modelPath, scale = 1, position = [0, 0, 0] }) => {
+const ModelViewer = (props) => {
   const {totalValue} = props;
-  const size = 2
+  const size = 1
   return (
     <Canvas style={{width: '50vw', position: "absolute", top: '4%'}}>
     <ambientLight intensity={1.5} />
     <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-    <pointLight position={[-10, -10, -10]} />
+    <pointLight position={[10, 10, 10]} />
       <Suspense fallback={null}>
       <Model scale={[size, size, size]} totalValue={totalValue} />
       </Suspense>

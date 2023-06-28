@@ -4,7 +4,7 @@ import SideControls from "../../Components/SideControls/SideControls";
 import ModelViewer from "./Model/ModelViewer"
 import { useState } from "react";
 import StatisticsPage from "./Statistics/StatisticsPage";
-import background from '../../Assets/lungsbg.mp4';
+import background from '../../Assets/mouthBG.mp4';
 
 
 const Container = styled.div`
@@ -50,6 +50,20 @@ const Circle = styled.div`
     border: ${p => `solid 1px rgba(255, 255, 255, ${p.opacity})`};
 `
 
+
+const Glow = styled.div`
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: ${p => `${p.size - 15}vw`};
+    height: ${p => `${p.size - 15}vw`}; 
+    border-radius: 50%;
+    filter: blur(70px);
+    background-color: rgba(255, 255, 255, 0.7);
+`
+
+
 const Title = styled.p`
     width: 20vw;
     font-family: 'Libre Franklin';
@@ -86,8 +100,11 @@ const TeethPage = (props) => {
     </BackgroundVideo>
     </BackgroundContainer>
 
-    <Circle size={20} opacity={0.7}/>
+    <Circle size={24} opacity={0.7}/>
+    <Circle size={27} opacity={0.5}/>
     <Circle size={30} opacity={0.3}/>
+    <Circle size={33} opacity={0.2}/>
+    <Glow size={30} />
 
 
     <Title>These<br />Are<br />Your<br />Teeth</Title>

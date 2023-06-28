@@ -57,6 +57,20 @@ const Title = styled.p`
 `
 
 
+const Glow = styled.div`
+    position: absolute;
+    top: ${p => p.position.top};
+    left: ${p => p.position.left};
+    transform: translate(-50%, -50%);
+    width: ${p => `${p.size}`};
+    height: ${p => `${p.size}`}; 
+    border-radius: 50%;
+    filter: blur(100px);
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: 3s all ease-in-out;
+`
+
+
 const StatisticsPage = (props) => {
 
     const {setAnimation, leftSideToggle, setLeftSideToggle, bodyRef, afterEverything, setAfterEverything, StatisticsPageRef, ChangeAnimation, animationText, setAnimationText, animation , totalValue, setTotalValue, Age, SmokingPeriod, NumberOfCig } = props
@@ -159,9 +173,11 @@ const StatisticsPage = (props) => {
     ChangeAnimation={ChangeAnimation}
     />
 
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : {top: '50%', left: '70%'}} size={ animation === null ? `27vw` : '24vw'} opacity={0.6}/>
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : {top: '50%', left: '70%'}} size={animation === null ? `40vw` : '35vw'} opacity={0.3}/>
-    
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : {top: '50%', left: '70%'}} size={ animation === null ? `27vw` : '20vw'} opacity={0.6}/>
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : {top: '50%', left: '70%'}} size={animation === null ? `31vw` : '24vw'} opacity={0.4}/>
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : {top: '50%', left: '70%'}} size={animation === null ? `35vw` : '28vw'} opacity={0.3}/>
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : {top: '50%', left: '70%'}} size={animation === null ? `39vw` : '32vw'} opacity={0.2}/>
+    <Glow opacity={animation} position={animation === null ? {top: "50%", left: "50%"} : {top: '50%', left: '70%'}} size={ animation === null ? `24vw` : '21vw'} />
     </ModelContainer>
 
     <LeftSideContainer bodyRef={bodyRef} setAnimation={setAnimation} leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} setAfterEverything={setAfterEverything} animationText={animationText} animation={animation} />
