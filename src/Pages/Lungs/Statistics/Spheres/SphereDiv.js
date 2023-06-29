@@ -51,7 +51,7 @@ const Name = styled.p`
 
 const Precentage = styled.div`
   font-family: Libre Franklin;
-  font-weight: 400;
+  font-weight: 100;
   text-align: center;
   position: relative;
   display: flex;
@@ -142,11 +142,11 @@ const SphereDiv = (props) => {
     
     <animated.p 
     // style={{fontSize: `${Divsizing < 50 ? Divsizing : Divsizing - 30}px`}}
-    style={{fontSize: "16px"}}
+    style={{fontSize: "16px", fontWeight: 700}}
     className="symbol">%</animated.p>
     
     </Precentage>
-    <Name>Risk</Name>
+    <Name>risk</Name>
     </DetailsDiv>
     
     <Circle size={`140px`} opacity={1}/>

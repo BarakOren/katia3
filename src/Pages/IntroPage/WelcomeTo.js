@@ -9,14 +9,13 @@ const Container = styled.div`
 const Title = styled.h1`
     color: white; 
     font-size: 4vw;
-    font-family: 'Montserrat', sans-serif;
     font-style: italic;
-    font-weight: 300;
+    font-weight: 700;
     letter-spacing: 0.478em;
+    font-style: italic;
 `
 
 const SpanOne = styled.span`
-    font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 6vw;
@@ -26,7 +25,7 @@ const SpanOne = styled.span`
 const WelcomeTo = () => {
 
     return <Container>
-        <Title>Welcome To <SpanOne>Fresh</SpanOne></Title>
+        <Title>Welcome To Fresh</Title>
     </Container>
 }
 

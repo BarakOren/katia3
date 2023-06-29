@@ -21,7 +21,7 @@ body{
   // background: black;
   background: linear-gradient(180deg, #02031B 51.36%, #242541 100%);
   color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Libre Franklin', sans-serif;
 }
 
 p h1 {

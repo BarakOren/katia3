@@ -12,8 +12,9 @@ const Text = styled.p`
     font-size: 2.5vw;
     text-align: center;
     font-family: 'Libre Franklin', sans-serif;
-    font-weight: 500;
-    `
+    font-weight: 400;
+    font-style: italic;
+`
 
 const FirstText = () => {
 

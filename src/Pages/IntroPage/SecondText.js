@@ -10,8 +10,9 @@ const Container = styled.div`
 
 const Text = styled.p`
     font-size: 3.5vw;
-    font-weight: 500;
+    font-weight: 400;
     font-family: 'Libre Franklin', sans-serif;
+    font-style: italic;
 `
 
 const StartButton = styled(Link)`
@@ -25,7 +26,7 @@ const StartButton = styled(Link)`
     text-decoration: none;
     font-size: 20px;
     color: black;
-    font-family: 'Libre Franklin';
+    font-family: 'Libre Franklin', sans-serif;
     font-weight: 300;
 
 `

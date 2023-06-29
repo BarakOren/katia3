@@ -38,23 +38,31 @@ const ModelContainer = styled.div`
     transition: 3s opacity ease-in-out;
     `
 
-
 const Title = styled.p`
     width: 20vw;
     font-family: 'Libre Franklin';
     font-style: normal;
     font-weight: 400;
     font-size: 36px;
-    line-height: 200%;
+    line-height: 190%;
     position: absolute;
     margin: 0;
     top: 50%;
     transform: translateY(-50%);
-    left: 15vw;
+    left: 13vw;
+    letter-spacing: 12px;
     opacity: ${p => p.opacity ? 0 : 1};
     transition: .5s opacity;
     transition-delay: 2s;
 `
+
+const Span = styled.span`
+    font-size: 40px;
+    font-family: 'Amiri', serif;
+    font-weight: 400;
+    font-style: italic;
+`
+
 
 
 const Glow = styled.div`
@@ -133,7 +141,7 @@ const StatisticsPage = (props) => {
 
 
     <ModelContainer opacity={afterEverything}>
-    <Title opacity={animation}>Your<br/>risk of<br/>these<br/>diseases</Title>
+    <Title opacity={animation}>Your<br/>risk of<br/>these<br/><Span>diseases</Span></Title>
 
     <SphereDiv
     Divsizing={Divsizing / 5}

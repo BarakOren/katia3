@@ -20,7 +20,8 @@ const Title = styled.p`
 const Text = styled.p`
     width: 99%;
     height: 100%;
-    font-family: 'Amiri';
+    font-family: 'Amiri', serif;
+    font-style: italic;
     font-weight: 400;
     font-size: 20px;
     line-height: 150%;
