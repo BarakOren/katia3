@@ -6,7 +6,7 @@ import { MeshToonMaterial } from "three";
 import {animated, useSpring} from '@react-spring/three';
 
 export function Model(props) {
-const { nodes, materials } = useGLTF('/tongue.glb')
+const { nodes, materials } = useGLTF('/katia3/tongue.glb')
 const {totalValue} = props;
   let color = parseInt(totalValue.NumberOfCig) + parseInt(totalValue.SmokingPeriod) + parseInt(totalValue.Age)
 

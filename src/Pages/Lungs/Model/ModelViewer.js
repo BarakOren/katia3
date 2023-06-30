@@ -10,7 +10,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 export function Model(props) {
 // const { nodes, materials } = useGLTF('/lungs.glb')
-const { nodes, materials } = useGLTF('/lungs.glb')
+const { nodes, materials } = useGLTF('/katia3/lungs.glb')
 const {totalValue} = props;
   let color = parseInt(totalValue.NumberOfCig) + parseInt(totalValue.SmokingPeriod) + parseInt(totalValue.Age)
 
