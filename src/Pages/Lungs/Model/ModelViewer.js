@@ -2,10 +2,6 @@ import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useGLTF } from '@react-three/drei'
-import { MeshToonMaterial } from "three";
-import {animated, useSpring} from '@react-spring/three';
-import { useLoader } from '@react-three/fiber'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 
 export function Model(props) {

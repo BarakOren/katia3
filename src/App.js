@@ -122,6 +122,7 @@ function App() {
       setLeftSideToggle(false)
       setAfterEverything(false)
       setAnimationText("")
+      window.scrollTo({ top: 0, left: 0})
     }, [location])
 
     const ChangeAnimation = (name) => {

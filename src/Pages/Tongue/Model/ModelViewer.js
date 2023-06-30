@@ -2,8 +2,6 @@ import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useGLTF } from '@react-three/drei'
-import { MeshToonMaterial } from "three";
-import {animated, useSpring} from '@react-spring/three';
 
 export function Model(props) {
 const { nodes, materials } = useGLTF('/katia3/tongue.glb')
