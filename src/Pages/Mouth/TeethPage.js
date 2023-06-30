@@ -63,19 +63,26 @@ const Glow = styled.div`
     background-color: rgba(255, 255, 255, 0.7);
 `
 
-
 const Title = styled.p`
     width: 20vw;
     font-family: 'Libre Franklin';
     font-style: normal;
     font-weight: 400;
     font-size: 36px;
-    line-height: 200%;
+    line-height: 190%;
     position: absolute;
     margin: 0;
     top: 60%;
     transform: translateY(-50%);
     left: 15vw;
+    letter-spacing: 12px;
+`
+
+const Span = styled.span`
+    font-size: 40px;
+    font-family: 'Amiri', serif;
+    font-weight: 400;
+    font-style: italic;
 `
 
 const GitBackground = styled.img`
@@ -107,7 +114,7 @@ const TeethPage = (props) => {
     <Glow size={30} />
 
 
-    <Title>These<br />Are<br />Your<br />Teeth</Title>
+    <Title>These<br />Are<br />Your<br /><Span>teeth</Span></Title>
 
     <ModelViewer totalValue={totalValue} setTotalValue={setTotalValue}
     />

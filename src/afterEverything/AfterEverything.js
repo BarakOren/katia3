@@ -2,8 +2,7 @@ import styled, {css , keyframes} from "styled-components"
 import svg from "../Assets/AfterEverythingSvg.svg"
 import arrow from "../Assets/arrow.svg"
 import {useEffect, useState} from "react";
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-
+import { useLocation } from "react-router-dom";
 
 const shutdown = keyframes`
   0% {
@@ -92,7 +91,7 @@ const SVG = styled.img`
 `
 
 const TextsContainer = styled.div`
-    margin-bottom: 30px;
+    margin-bottom: 70px;
     position: absolute;
     width: 85%;
     height: 85vh;
@@ -164,7 +163,7 @@ const NextButton = styled.button`
     border: none;
     background: none;
     position: absolute;
-    top: 40%;
+    top: 35%;
     right: ${p => p.position};
     height: auto;
     padding: 8px 10px;
@@ -188,16 +187,35 @@ const AfterEverything = (props) => {
 
     const {leftSideToggle, setLeftSideToggle, bodyRef, afterEverything, setAfterEverything} = props
     const [step, setStep] = useState(1)
+    const [texts, setTexts] = useState({})
 
     const [showAll, setShowAll] = useState(false);
 
-    const texts = {
-      one: "After everything you've read,",
-      oneItalic: "do you think people are afraid to smoke?",
-      two: "About 21% of people",
-      twoItalic: "with asthma smoke, even though cigarette smoke is a trigger for asthma attacks.",
-      three: "What about you?"
-    }
+    // const location = useLocation().pathname.replace('/', '');
+    const location = useLocation().pathname
+
+    useEffect(() => {
+        if(location === "/lungs"){
+          console.log("lungd")
+          setTexts({
+            two: "About 21% of people",
+            twoItalic: "with asthma smoke, even though cigarette smoke is a trigger for asthma attacks.",
+          })
+        }
+        else if(location === "/teeth"){
+          console.log("teeth")
+          setTexts({
+            two: "90% of people who smoke have tartar on their teeth",
+            twoItalic: "Tartar builds up even when you brush your teeth regularly.",
+          })
+        }
+        else if(location === "/tongue"){
+          setTexts({
+            two: "This tint does not disappear even with daily use of whitening pastes.",
+            twoItalic: "Tooth discoloration caused by smoking is much more difficult to treat than food discoloration.",
+          })
+        }
+    }, [location])
 
     const stepForward = () => {
       if(step === 3){
@@ -218,8 +236,8 @@ const AfterEverything = (props) => {
     
     <TextsContainer show={step === 1}>
       <TextContainer>
-        <Text>{texts.one}</Text>
-        <ItalicOne>{texts.oneItalic}</ItalicOne>
+        <Text>After everything you've read,</Text>
+        <ItalicOne>do you think people are afraid to smoke?</ItalicOne>
       </TextContainer>
     </TextsContainer>
 

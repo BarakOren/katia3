@@ -35,6 +35,20 @@ const Line = styled.div`
     border-radius: 50%;
 `
 
+const Sun = styled.div`
+    width: 70vw;
+    height: 70vw;
+    position: absolute;
+    top: 50%;
+    right: -15vw;
+    transform: translateY(-50%);
+    background: radial-gradient(circle, rgba(205,109,29,0.8) 0%, rgba(205,109,29,0) 60%);
+
+
+`
+
+
+
 const IntroPage = () => {
 
     const lines = [
@@ -67,6 +81,7 @@ const IntroPage = () => {
         {lines.map(line => {return <Line size={line.size} opacity={line.opacity} />})}
         </div>
         </LineContainer>
+        <Sun />
     
         <WelcomeTo />
         <FirstText />

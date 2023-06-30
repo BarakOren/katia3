@@ -89,7 +89,6 @@ const LeftSideContainer = (props) => {
         
         return () => clearInterval(interval);
         }
-        console.log(Tuberculosis.current.currentTime)
       
     }, [playing, animation]);
 

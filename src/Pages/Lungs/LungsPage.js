@@ -114,7 +114,7 @@ const LungsPage = (props) => {
 
     <Title>These<br />Are<br />Your<br /><Span>lungs</Span></Title>
 
-    <ModelViewer scale="4" modelPath={"./lungs.glb"}  
+    <ModelViewer 
     totalValue={totalValue} setTotalValue={setTotalValue}
     />
 

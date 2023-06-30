@@ -5,8 +5,6 @@ import { useEffect, useState } from "react"
 import { animated, useSpring } from '@react-spring/web'
 import SphereDiv from "./Spheres/SphereDiv"
 import AfterEverything from "../../../afterEverything/AfterEverything"
-import { AnimationUtils } from "three"
-
 
 const Container = styled.div`
     width: 100%;
@@ -58,6 +56,33 @@ const Title = styled.p`
 `
 
 
+const Glow = styled.div`
+    position: absolute;
+    top: ${p => p.position.top};
+    left: ${p => p.position.left};
+    transform: translate(-50%, -50%);
+    width: ${p => `${p.size}`};
+    height: ${p => `${p.size}`}; 
+    border-radius: 50%;
+    filter: blur(100px);
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: 3s all ease-in-out;
+`
+const Thoughts = styled.div`
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    font-size: 3vw;
+    font-weight: 400;
+    padding-bottom: 5px;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+    opacity: ${p => p.opacity ? 1 : 0};
+    transition: 3s all;
+`
+
+
+
 const StatisticsPage = (props) => {
 
     const {setAnimation, leftSideToggle, setLeftSideToggle, bodyRef, afterEverything, setAfterEverything, StatisticsPageRef, ChangeAnimation, animationText, setAnimationText, animation , totalValue, setTotalValue, Age, SmokingPeriod, NumberOfCig } = props
@@ -70,22 +95,22 @@ const StatisticsPage = (props) => {
         
     const Divsizing = IntAge / 2 + IntSmokingPeriod / 2 + IntNumberOfCig
 
-    const [SphereOnePosition, setSphereOnePosition] = useState({top: '20%', left: '40%'}) //Tuberculosis
-    const [SphereTwoPosition, setSphereTwoPosition] = useState({top: '30%', left: '57%'}) //Cancer
+    const [SphereOnePosition, setSphereOnePosition] = useState({top: '25%', left: '40%'}) //Tuberculosis
+    const [SphereTwoPosition, setSphereTwoPosition] = useState({top: '30%', left: '60%'}) //Cancer
     const [SphereThreePosition, setSphereThreePosition] = useState({top: '65%', left: '40%'}) //Asthma
     const [SphereFourPosition, setSphereFourPosition] = useState({top: '68%', left: '60%'}) //Lung collapse
 
-    const focusPosition = {top: '50%', left: '70%'}
+    const focusPosition = {top: '50%', left: '50%'}
 
-    const SphereOneOffScreen = {top: '-20%', left: '35%'} //Tuberculosis
-    const SphereTwoOffScreen = {top: '-20%', left: '70%'} //Cancer
-    const SphereThreeOffScreen = {top: '120%', left: '30%'} //Asthma
-    const SphereFourOffScreen = {top: '120%', left: '90%'} //Lung collapse
+    const SphereOneOffScreen = {top: '-25%', left: '35%'} //Tuberculosis
+    const SphereTwoOffScreen = {top: '-25%', left: '70%'} //Cancer
+    const SphereThreeOffScreen = {top: '125%', left: '30%'} //Asthma
+    const SphereFourOffScreen = {top: '125%', left: '90%'} //Lung collapse
 
     useEffect(() => {
         if(animation === null) {
-            setSphereOnePosition({top: '20%', left: '40%'})
-            setSphereTwoPosition({top: '30%', left: '57%'})
+            setSphereOnePosition({top: '25%', left: '40%'})
+            setSphereTwoPosition({top: '30%', left: '60%'})
             setSphereThreePosition({top: '65%', left: '40%'})
             setSphereFourPosition({top: '68%', left: '60%'})
         }
@@ -160,14 +185,17 @@ const StatisticsPage = (props) => {
     ChangeAnimation={ChangeAnimation}
     />
 
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : {top: '50%', left: '70%'}} size={ animation === null ? `27vw` : '24vw'} opacity={0.6}/>
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : {top: '50%', left: '70%'}} size={animation === null ? `40vw` : '35vw'} opacity={0.3}/>
-    
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={ animation === null ? `27vw` : '20vw'} opacity={0.6}/>
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? `31vw` : '24vw'} opacity={0.4}/>
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? `35vw` : '28vw'} opacity={0.3}/>
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? `39vw` : '32vw'} opacity={0.2}/>
+    <Glow opacity={animation} position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={ animation === null ? `24vw` : '21vw'} />
     </ModelContainer>
 
     <LeftSideContainer animation={animation} bodyRef={bodyRef} setAnimation={setAnimation} leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} setAfterEverything={setAfterEverything} animationText={animationText} animation={animation} />
 
     <AfterEverything leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} />
+    <Thoughts opacity={animation && !afterEverything} onClick={() => {setAfterEverything(true); setLeftSideToggle(false)}}>Thoughts</Thoughts>
 
     </Container>
 }

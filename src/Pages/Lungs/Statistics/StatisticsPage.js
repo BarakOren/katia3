@@ -104,10 +104,10 @@ const StatisticsPage = (props) => {
         
     const Divsizing = IntAge / 2 + IntSmokingPeriod / 2 + IntNumberOfCig
 
-    const [SphereOnePosition, setSphereOnePosition] = useState({top: '20%', left: '40%'}) //Tuberculosis
-    const [SphereTwoPosition, setSphereTwoPosition] = useState({top: '30%', left: '57%'}) //Cancer
+    const [SphereOnePosition, setSphereOnePosition] = useState({top: '25%', left: '40%'}) //Tuberculosis
+    const [SphereTwoPosition, setSphereTwoPosition] = useState({top: '30%', left: '60%'}) //Cancer
     const [SphereThreePosition, setSphereThreePosition] = useState({top: '65%', left: '40%'}) //Asthma
-    const [SphereFourPosition, setSphereFourPosition] = useState({top: '68%', left: '60%'}) //Lung collapse
+    const [SphereFourPosition, setSphereFourPosition] = useState({top: '72%', left: '60%'}) //Lung collapse
 
     // old focus position
     // const focusPosition = {top: '50%', left: '70%'}
@@ -122,10 +122,10 @@ const StatisticsPage = (props) => {
 
     useEffect(() => {
         if(animation === null) {
-            setSphereOnePosition({top: '20%', left: '40%'})
-            setSphereTwoPosition({top: '30%', left: '57%'})
+            setSphereOnePosition({top: '25%', left: '40%'})
+            setSphereTwoPosition({top: '30%', left: '60%'})
             setSphereThreePosition({top: '65%', left: '40%'})
-            setSphereFourPosition({top: '68%', left: '60%'})
+            setSphereFourPosition({top: '72%', left: '60%'})
         }
         else if (animation === "Tuberculosis"){
             setSphereOnePosition(focusPosition)
@@ -170,7 +170,7 @@ const StatisticsPage = (props) => {
     />
 
     <SphereDiv
-    Divsizing={Divsizing}
+    Divsizing={Divsizing / 1.2 }
     animation={animation}
     name={"Cancer"}
     SphereAnimation={SphereAnimation} 

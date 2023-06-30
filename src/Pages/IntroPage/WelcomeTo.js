@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Container = styled.div`
     width: 100vw;
     height: 100vh;
+    z-index: 1;
 `
 
 
@@ -13,6 +14,7 @@ const Title = styled.h1`
     font-weight: 700;
     letter-spacing: 0.478em;
     font-style: italic;
+    font-family: Amiri;
 `
 
 const SpanOne = styled.span`
