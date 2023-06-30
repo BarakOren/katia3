@@ -99,7 +99,6 @@ const LungsPage = (props) => {
     
     <BackgroundContainer>
     <BlackShade />
-    
     <BackgroundVideo autoPlay loop muted>
         <source src={background} type='video/mp4' />
     </BackgroundVideo>

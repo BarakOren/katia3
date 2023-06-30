@@ -55,7 +55,7 @@ const SideControls = (props) => {
 
     const [toggle, setToggle] = useState(true);
 
-    return <Container opacity={afterEverything} display={location} right={toggle}>
+    return <Container opacity={afterEverything || animation} display={location} right={toggle}>
     
     <Icon src={Arrow} alt="arrow" onClick={() => setToggle(!toggle)} toggle={toggle ? 0 : 180} />
 

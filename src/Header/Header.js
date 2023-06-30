@@ -52,8 +52,8 @@ const Icon = styled.img`
     width: 30px;
     height: auto;
     cursor: pointer;
-    opacity: ${p => p.display ? 0 : 1};
-    transition: 3s opacity ease-in-out;
+    opacity: ${p => p.opacity ? 1 : 0.5};
+    transition: .5s opacity;
 `
 
 const LinkContainer = styled(Link)`
@@ -93,15 +93,15 @@ const Header = (props) => {
         
         <IconsContainer >
         <LinkContainer to="/lungs">
-        <Icon src={lungsIcon}  alt="Icon" opacity={location === "/lungs" ? 1 : 0.5} />        
+        <Icon src={lungsIcon}  alt="Icon" opacity={location === "/lungs"} />        
         </LinkContainer>
 
         <LinkContainer to="/teeth">
-        <Icon src={teethIcon} alt="Icon" opacity={location === "/teeth" ? 1 : 0.5} />
+        <Icon src={teethIcon} alt="Icon" opacity={location === "/teeth"} />
         </LinkContainer>
 
         <LinkContainer to="/tongue">
-        <Icon src={mouthIcon} alt="Icon" opacity={location === "/tongue" ? 1 : 0.5} />
+        <Icon src={mouthIcon} alt="Icon" opacity={location === "/tongue"} />
         </LinkContainer>
 
         <UnderLine location={setPosition()}/>

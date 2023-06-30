@@ -191,19 +191,6 @@ const AfterEverything = (props) => {
 
     const [showAll, setShowAll] = useState(false);
 
-    // useEffect(() => {
-    //   if (afterEverything) {
-    //     console.log("1")
-    //     setShowAll(true); return;
-    //   }
-    //   else if(!afterEverything){
-    //       setTimeout(() => {
-    //     console.log("2")
-    //           setShowAll(false)
-    //       }, 3001)
-    //     } 
-    // }, [afterEverything])
-
     const texts = {
       one: "After everything you've read,",
       oneItalic: "do you think people are afraid to smoke?",
@@ -213,10 +200,12 @@ const AfterEverything = (props) => {
     }
 
     const stepForward = () => {
-      if(step === 3){setAfterEverything(false); setLeftSideToggle(true); setStep(1); 
-      // setTimeout(() => {
-      //   enableBodyScroll(bodyRef);
-      // }, 3000)  
+      if(step === 3){
+        setAfterEverything(false); 
+        setLeftSideToggle(true); 
+        setTimeout(() => {
+          setStep(1); 
+        }, 3000)
       return}
       setStep(step + 1);
     }
@@ -224,10 +213,6 @@ const AfterEverything = (props) => {
     const stepBackwards = () => {
       setStep(step - 1);
     }
-
-    // <Text opacity={step}>{texts.one}</Text>
-    // <TextTwo opacity={step}>{texts.two}</TextTwo>
-    // <TextThree opacity={step}>{texts.three}</TextThree>
 
     return <Container opacity={afterEverything} display={showAll}>
     
@@ -253,7 +238,6 @@ const AfterEverything = (props) => {
       <ItalicOne style={{textAlign: "right"}}>you?</ItalicOne>
     </TextContainer>
   </TextsContainer>
-
 
     <NextButton onClick={() => stepForward()} position={'45%'} opacity={afterEverything}>Next</NextButton>
     <NextButton onClick={() => stepBackwards()} position={'55%'} disabled={step === 1} opacity={afterEverything}>Back</NextButton>

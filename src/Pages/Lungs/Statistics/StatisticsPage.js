@@ -209,7 +209,7 @@ const StatisticsPage = (props) => {
 
     <AfterEverything leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} />
 
-    <Thoughts opacity={animation } onClick={() => {setAfterEverything(true); setLeftSideToggle(false)}}>Thoughts</Thoughts>
+    <Thoughts opacity={animation && !afterEverything} onClick={() => {setAfterEverything(true); setLeftSideToggle(false)}}>Thoughts</Thoughts>
 
     </Container>
 }
