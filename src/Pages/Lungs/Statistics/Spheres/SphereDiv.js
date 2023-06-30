@@ -42,7 +42,7 @@ const DetailsDiv = styled.div`
 `
 
 const Name = styled.p`
-  font-size: 100%;
+  font-size: 150%;
   color: white;
   font-family: Libre Franklin;
   font-weight: 700;
@@ -66,8 +66,8 @@ const Precentage = styled.div`
 
   .symbol {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 0px;
+    top: 15px;
   }
  
 `
@@ -116,6 +116,8 @@ const SphereDiv = (props) => {
       },
       });
 
+      // <Circle size={`140px`} opacity={1}/>
+      // <Circle size={Divsizing > 50 ? '75%' : '85%'} opacity={0.3}/>
 
     return <animated.div
     onClick={() => ChangeAnimation(name)}
@@ -136,7 +138,7 @@ const SphereDiv = (props) => {
     
     <Precentage>
     <animated.p
-    style={{fontSize: '50px'}}
+    style={{fontSize: '80px'}}
     // style={{fontSize: `${26 + Divsizing}px`}}
     >{Math.floor(Divsizing) > 99 ? 100 : Math.floor(Divsizing)}</animated.p>
     
@@ -149,8 +151,7 @@ const SphereDiv = (props) => {
     <Name>risk</Name>
     </DetailsDiv>
     
-    <Circle size={`140px`} opacity={1}/>
-    <Circle size={Divsizing > 50 ? '75%' : '85%'} opacity={0.3}/>
+   
       
     <Sphere src={SphereType()} alt="Sphere" />
     

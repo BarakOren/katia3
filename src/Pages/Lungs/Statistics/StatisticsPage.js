@@ -96,7 +96,11 @@ const StatisticsPage = (props) => {
     const [SphereThreePosition, setSphereThreePosition] = useState({top: '65%', left: '40%'}) //Asthma
     const [SphereFourPosition, setSphereFourPosition] = useState({top: '68%', left: '60%'}) //Lung collapse
 
-    const focusPosition = {top: '50%', left: '70%'}
+    // old focus position
+    // const focusPosition = {top: '50%', left: '70%'}
+
+    // new focus position
+    const focusPosition = {top: '50%', left: '50%'}
 
     const SphereOneOffScreen = {top: '-20%', left: '35%'} //Tuberculosis
     const SphereTwoOffScreen = {top: '-20%', left: '70%'} //Cancer
@@ -181,11 +185,11 @@ const StatisticsPage = (props) => {
     ChangeAnimation={ChangeAnimation}
     />
 
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : {top: '50%', left: '70%'}} size={ animation === null ? `27vw` : '20vw'} opacity={0.6}/>
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : {top: '50%', left: '70%'}} size={animation === null ? `31vw` : '24vw'} opacity={0.4}/>
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : {top: '50%', left: '70%'}} size={animation === null ? `35vw` : '28vw'} opacity={0.3}/>
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : {top: '50%', left: '70%'}} size={animation === null ? `39vw` : '32vw'} opacity={0.2}/>
-    <Glow opacity={animation} position={animation === null ? {top: "50%", left: "50%"} : {top: '50%', left: '70%'}} size={ animation === null ? `24vw` : '21vw'} />
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={ animation === null ? `27vw` : '20vw'} opacity={0.6}/>
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? `31vw` : '24vw'} opacity={0.4}/>
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? `35vw` : '28vw'} opacity={0.3}/>
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? `39vw` : '32vw'} opacity={0.2}/>
+    <Glow opacity={animation} position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={ animation === null ? `24vw` : '21vw'} />
     </ModelContainer>
 
     <LeftSideContainer bodyRef={bodyRef} setAnimation={setAnimation} leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} setAfterEverything={setAfterEverything} animationText={animationText} animation={animation} />

@@ -1,17 +1,21 @@
 import styled from "styled-components"
-import Icons from "./Icons"
+import BackButton from "./BackButton"
 import TextArea from "./TextArea"
 import Listen from "./Listen"
 import {useEffect, useRef, useState} from "react";
 
 const Container = styled.div`
-    width: 40vw;
+    width: 30vw;
     height: 100vh;
     position: absolute;
     top: 0;
     left: ${p => p.left ? '0' : '-50vw'};
     transition: 2s left;
     transition-delay: ${p => p.left ? '2s' : 0};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
 `
 
@@ -23,33 +27,22 @@ const Relative = styled.div`
 `
 
 const Middle = styled.div`
-    margin-top: 100px;
+    /* margin-top: 100px; */
     width: 100%;
-    height: 50%;
+    height: 100%;
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
 `
 
-
-const ScrollLine = styled.div`
-    width: 2px;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 30%;
-    background-color: rgba(255,255,255,0.5);
-`
-
-const ScrollBar = styled.div`
-    top: ${p => `${p.precentage}%`};
-    left: 50%;
-    transform: translateX(-50%);
-    width: 5px;
-    height: 20%;
-    background: white;
-    position: absolute;
-    border-radius: 5px;
+const ButtonAndTextContainer = styled.div`
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
 `
 
 
@@ -82,13 +75,14 @@ const LeftSideContainer = (props) => {
                     setProgress(Tuberculosis.current.currentTime / Tuberculosis.current.duration * 100)
                 }
                 else if(animation === "Cancer") {
-                    setProgress(Cancer.current.currentTime/Cancer.current.duration * 100)
+                    setProgress(Cancer.current.currentTime / Cancer.current.duration * 100)
                 }
                 else if(animation === "Lung collapse") {
-                    setProgress(LungCollapse.current.currentTime/LungCollapse.current.duration * 100)
+                    setProgress(LungCollapse.current.currentTime / LungCollapse.current.duration * 100)
                 }
-                else if(animation === "Astma") {
-                    setProgress(Asthma.current.currentTime/Asthma.current.duration * 100)
+                else if(animation === "Asthma") {
+                    console.log("Lung collapse")
+                    setProgress(Asthma.current.currentTime / Asthma.current.duration * 100)
                 }
                 
             }, 100);
@@ -97,7 +91,7 @@ const LeftSideContainer = (props) => {
         }
         console.log(Tuberculosis.current.currentTime)
       
-    }, [playing]);
+    }, [playing, animation]);
 
     const play = () => {
         setPlaying(true);
@@ -135,14 +129,13 @@ const LeftSideContainer = (props) => {
 
 
     return <Container left={leftSideToggle}>
-        
-    <Relative>
+    <BackButton pause={pause} setAnimation={setAnimation} animation={animation} bodyRef={bodyRef} />
         <Middle>
-        <Icons pause={pause} setAnimation={setAnimation} animation={animation} bodyRef={bodyRef} />
-        <TextArea animationText={animationText} />
-        </Middle>
+        <ButtonAndTextContainer>
+        <TextArea animation={animation} animationText={animationText} />
         <Listen playing={playing} pause={pause} progress={progress} setProgress={setProgress} animation={animation} bodyRef={bodyRef} setAnimation={setAnimation} setToggle={setLeftSideToggle} setAfterEverything={setAfterEverything} play={play}/>
-        </Relative>
+        </ButtonAndTextContainer>
+        </Middle>
     </Container>
 }
 

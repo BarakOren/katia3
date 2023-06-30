@@ -2,19 +2,21 @@ import styled from "styled-components"
 import { useEffect, useState, useRef } from "react"
 
 const Button = styled.button`
-    width: 150px;
-    height: 50px;
+    align-self: flex-start;
+    position: relative;
+    margin-top: 30px;
+    padding: 3px 20px;
     color: white;
     border: 1.5px solid white;
     background: none;
     outline: none;
-    position: absolute;
-    bottom: 10%;
-    left: 35%;
+    /* position: absolute; */
+    /* bottom: 10%; */
+    /* left: 35%; */
     border-radius: 33px;
     cursor: pointer;
     line-height: 150%;
-    font-size: 30px;
+    font-size: 16px;
     overflow: hidden;
     transition: .5s all;
     z-index: 1;
@@ -37,6 +39,14 @@ const Listen = (props) => {
     const {playing, pause, progress, setProgress, animation, bodyRef, setAnimation, setToggle, setAfterEverything, play } = props
     
     // onClick={() => {setAfterEverything(true); setToggle(false)}
+
+    useEffect(() => {
+        if(!animation){
+            setTimeout(() => {
+                setProgress(0)
+            }, 3000)
+        }
+    }, [animation])
 
     return <Button progress={progress} isPlaying={playing} onClick={playing ? pause : play} alt="Liaten button">Listen</Button>
 }

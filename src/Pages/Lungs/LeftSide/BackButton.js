@@ -8,7 +8,7 @@ import { enableBodyScroll } from 'body-scroll-lock';
 
 const Container = styled.div`
     margin-top: 10px;
-    width: 11vw;
+    width: 7vw;
     height: 100px;
     /* position: absolute; */
     /* left: 0; */
@@ -20,11 +20,14 @@ const Container = styled.div`
 `
 
 const Icon = styled.img`
+    position: absolute;
+    top: 70px;
+    left: 30px;
     width: 20px;
     height: 20px;
     padding: 6px;
-    border: 1px solid white;
-    border-radius: 50%;
+    /* border: 1px solid white; */
+    /* border-radius: 50%; */
     cursor: pointer;
     box-shadow: ${p => p.isPlaying && "0 0 15px rgb(255,255,255,0.8)"};
     transition: .5s box-shadow;
@@ -50,7 +53,7 @@ const ProgressBar = styled.div`
     }
 `
 
-const Icons = (props) => {
+const BackButton = (props) => {
 
     const {pause, animation, bodyRef, setAnimation} = props
 
@@ -58,9 +61,8 @@ const Icons = (props) => {
     // <Icon isPlaying={playing} onClick={playing ? pause : play} src={IconSvg} alt="Icon" />
 
 
-    return <Container>
-        <Icon isPlaying={null} onClick={() => {setAnimation(null); pause(); enableBodyScroll(bodyRef)} } src={Arrow} alt="arrow" />
-    </Container>
+    return <Icon isPlaying={null} onClick={() => {setAnimation(null); pause(); enableBodyScroll(bodyRef)} } src={Arrow} alt="arrow" />
+
 }
 
-export default Icons
+export default BackButton

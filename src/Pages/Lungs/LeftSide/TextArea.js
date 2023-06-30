@@ -3,18 +3,22 @@ import styled from "styled-components"
 import { Titles } from "../../../Texts"
 
 const Container = styled.div`
-    width: 65%;
-    height: 100%;
+    margin-top: 50px;
+    width: 100%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 `
 
 const Title = styled.p`
+    width: 100%;
     font-family: 'Libre Franklin';
     font-weight: 400;
     font-size: 60px;
     margin: 0;
+    text-align: left;
+    white-space: nowrap;
 `
 
 const Text = styled.p`
@@ -27,6 +31,8 @@ const Text = styled.p`
     line-height: 150%;
     overflow-y: scroll;
     margin: 0;
+    direction:rtl; 
+    margin-top: 20px;
 
     
 &::-webkit-scrollbar{
@@ -41,7 +47,7 @@ const Text = styled.p`
 `
 
 const TextArea = forwardRef((props, ref) => {
-    const {animationText, handleScroll} = props
+    const {animation, animationText, handleScroll} = props
     return <Container>
     <Title>{animationText.title}</Title>
     <Text ref={ref}

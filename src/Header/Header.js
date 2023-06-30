@@ -13,8 +13,7 @@ const Container = styled.div`
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    /* display: ${p => p.display ? "none" : "flex"}; */
-    display: flex;
+    display: ${p => p.display ? "none" : "flex"};
     justify-content: space-between;
     opacity: ${p => p.opacity ? 0 : 1};
     z-index: 10;
@@ -42,16 +41,19 @@ const IconsContainer = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     position: relative;
+    justify-content: space-between;
+    opacity: ${p => p.display ? 0 : 1};
+    transition: 3s opacity ease-in-out;
+
 `
 
 const Icon = styled.img`
     width: 30px;
     height: auto;
     cursor: pointer;
-    opacity: ${p => p.opacity};
-    transition: .5s opacity;
+    opacity: ${p => p.display ? 0 : 1};
+    transition: 3s opacity ease-in-out;
 `
 
 const LinkContainer = styled(Link)`
@@ -86,11 +88,10 @@ const Header = (props) => {
         else if(location === "/teeth") return 85
         else if (location === "/tongue") return 170
     }
-
-    return <Container opacity={location === "/" || animation !== null} display={location === "/" || animation !== null}>
+    return <Container display={location === "/"}>
         <About to="/">About</About>
-        <IconsContainer >
         
+        <IconsContainer >
         <LinkContainer to="/lungs">
         <Icon src={lungsIcon}  alt="Icon" opacity={location === "/lungs" ? 1 : 0.5} />        
         </LinkContainer>
