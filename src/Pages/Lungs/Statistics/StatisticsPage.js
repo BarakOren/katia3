@@ -78,6 +78,19 @@ const Glow = styled.div`
     transition: 3s all ease-in-out;
 `
 
+const Thoughts = styled.div`
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    font-size: 3vw;
+    font-weight: 400;
+    padding-bottom: 5px;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+    opacity: ${p => p.opacity ? 1 : 0};
+    transition: 3s all;
+`
+
 
 const StatisticsPage = (props) => {
 
@@ -102,10 +115,10 @@ const StatisticsPage = (props) => {
     // new focus position
     const focusPosition = {top: '50%', left: '50%'}
 
-    const SphereOneOffScreen = {top: '-20%', left: '35%'} //Tuberculosis
-    const SphereTwoOffScreen = {top: '-20%', left: '70%'} //Cancer
-    const SphereThreeOffScreen = {top: '120%', left: '30%'} //Asthma
-    const SphereFourOffScreen = {top: '120%', left: '90%'} //Lung collapse
+    const SphereOneOffScreen = {top: '-25%', left: '35%'} //Tuberculosis
+    const SphereTwoOffScreen = {top: '-25%', left: '70%'} //Cancer
+    const SphereThreeOffScreen = {top: '125%', left: '30%'} //Asthma
+    const SphereFourOffScreen = {top: '125%', left: '90%'} //Lung collapse
 
     useEffect(() => {
         if(animation === null) {
@@ -195,6 +208,8 @@ const StatisticsPage = (props) => {
     <LeftSideContainer bodyRef={bodyRef} setAnimation={setAnimation} leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} setAfterEverything={setAfterEverything} animationText={animationText} animation={animation} />
 
     <AfterEverything leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} />
+
+    <Thoughts opacity={animation } onClick={() => {setAfterEverything(true); setLeftSideToggle(false)}}>Thoughts</Thoughts>
 
     </Container>
 }

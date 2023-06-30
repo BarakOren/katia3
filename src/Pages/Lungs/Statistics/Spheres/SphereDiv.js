@@ -138,7 +138,7 @@ const SphereDiv = (props) => {
     
     <Precentage>
     <animated.p
-    style={{fontSize: '80px'}}
+    style={{fontSize: '70px'}}
     // style={{fontSize: `${26 + Divsizing}px`}}
     >{Math.floor(Divsizing) > 99 ? 100 : Math.floor(Divsizing)}</animated.p>
     

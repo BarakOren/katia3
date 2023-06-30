@@ -91,100 +91,80 @@ const SVG = styled.img`
     `}
 `
 
-const BackButton = styled.img`
-    width: 20px;
-    height: auto;
-    position: absolute;
-    /* top: 60px; */
-    left: 30px;
-    transform: rotate(180deg);
-    border-radius: 50%;
-    border: 1px solid white;
-    padding: 6px 8px;
-    cursor: pointer;
-    /* opacity: ${p => p.opacity ? 1 : 0}; */
-    /* transition: 3s opacity ease-in-out; */
-    ${p => css`
-    animation: ${p.opacity ? ButtonAnimation : ButtonAnimation2} 3s forwards;
-    `}
-`
-
 const TextsContainer = styled.div`
-    width: 70%;
-    height: 90vh;
-    flex-direction: column;
-    z-index: 30;
+    margin-bottom: 30px;
+    position: absolute;
+    width: 85%;
+    height: 85vh;
+    flex-direction: row;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    z-index: 20;
+    text-align: left;
+    opacity: ${p => p.show ? 1 : 0};
+    transition: 1s opacity;
 `
 
 const TextContainer = styled.div`
-    height: 100vh;
-    width: 100%;
+    width: 49%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 50%;
 `
 
 const Text = styled.h4`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70%;
     font-size: 60px;
-    text-align: center;
-    opacity: ${p => p.opacity === 1 ? 1 : 0};
+    /* opacity: ${p => p.step === 1 ? 1 : 0}; */
     transition: 3s opacity;
     margin: 0;
+    font-weight: 800;
+    text-align: inherit;
 `
+
+const ItalicOne = styled.p`
+  transition: 3s opacity;
+  /* opacity: ${p => p.step === 1 ? 1 : 0}; */
+  font-size: 36px;
+  font-style: italic;
+  font-family: Amiri;
+  text-align: inherit;
+  min-width: 100%;
+  line-height: 50px;
+  margin-top: 20px;
+`
+
 
 const TextTwo = styled.h4`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    font-size: 50px;
-    text-align: center;
-    opacity: ${p => p.opacity === 2 ? 1 : 0};
+    font-size: 60px;
+    /* opacity: ${p => p.step === 2 ? 1 : 0}; */
     transition: 3s opacity;
     margin: 0;
+    font-weight: 800;
+    text-align: inherit;
 `
 
-
-
-const TextThree = styled.h4`
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    font-size: 100px;
-    text-align: center;
-    opacity: ${p => p.opacity === 3 ? 1 : 0};
-    transition: 3s opacity;
-    margin: 0;
+const ItalicTwo = styled.p`
+  transition: 3s opacity;
+  /* opacity: ${p => p.step === 2 ? 1 : 0}; */
+  font-size: 36px;
+  font-style: italic;
+  font-family: Amiri;
+  text-align: inherit;
+  min-width: 100%;
+  line-height: 50px;
+  margin-top: 20px;
 `
-
-const MoveForwardButton = styled.img`
-    position: absolute;
-    bottom: 50px;
-    right: 20%;
-    width: 20px;
-    height: auto;
-    padding: 8px 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    opacity: ${p => p.opacity ? 1 : 0};
-    transition: 3s opacity ease-in-out;
-`
-// <MoveForwardButton src={arrow} alt="" opacity={afterEverything} />
 
 const NextButton = styled.button`
+    z-index: 100;
     color: white;
     border: none;
     background: none;
     position: absolute;
-    bottom: 50px;
+    top: 40%;
     right: ${p => p.position};
     height: auto;
     padding: 8px 10px;
@@ -203,7 +183,6 @@ const NextButton = styled.button`
       opacity: 0.3;
     }
 `
-
 
 const AfterEverything = (props) => {
 
@@ -226,8 +205,10 @@ const AfterEverything = (props) => {
     // }, [afterEverything])
 
     const texts = {
-      one: "After everything you've read, do you think people are afraid to smoke?",
-      two: "About 21% of people with asthma smoke, even though cigarette smoke is a trigger for asthma attacks.",
+      one: "After everything you've read,",
+      oneItalic: "do you think people are afraid to smoke?",
+      two: "About 21% of people",
+      twoItalic: "with asthma smoke, even though cigarette smoke is a trigger for asthma attacks.",
       three: "What about you?"
     }
 
@@ -244,19 +225,39 @@ const AfterEverything = (props) => {
       setStep(step - 1);
     }
 
+    // <Text opacity={step}>{texts.one}</Text>
+    // <TextTwo opacity={step}>{texts.two}</TextTwo>
+    // <TextThree opacity={step}>{texts.three}</TextThree>
+
     return <Container opacity={afterEverything} display={showAll}>
-    <SVG src={svg} display={afterEverything} />
-    <BackButton opacity={afterEverything} onClick={() => setAfterEverything(false)} src={arrow} alt=""/>
     
-    <TextsContainer>
-    <NextButton onClick={() => stepForward()} position={'20%'} opacity={afterEverything}>Next</NextButton>
-    <NextButton onClick={() => stepBackwards()} disabled={step === 1} position={'80%'} opacity={afterEverything}>Back</NextButton>
-
-    <Text opacity={step}>{texts.one}</Text>
-    <TextTwo opacity={step}>{texts.two}</TextTwo>
-    <TextThree opacity={step}>{texts.three}</TextThree>
-
+    <TextsContainer show={step === 1}>
+      <TextContainer>
+        <Text>{texts.one}</Text>
+        <ItalicOne>{texts.oneItalic}</ItalicOne>
+      </TextContainer>
     </TextsContainer>
+
+    <TextsContainer show={step === 2}>
+      <TextContainer>
+        <Text>{texts.two}</Text>
+      </TextContainer>
+      <TextContainer>
+        <ItalicTwo>{texts.twoItalic}</ItalicTwo>
+      </TextContainer>
+    </TextsContainer>
+
+    <TextsContainer show={step === 3}>
+    <TextContainer style={{width: 'auto'}}>
+      <Text>What about</Text>
+      <ItalicOne style={{textAlign: "right"}}>you?</ItalicOne>
+    </TextContainer>
+  </TextsContainer>
+
+
+    <NextButton onClick={() => stepForward()} position={'45%'} opacity={afterEverything}>Next</NextButton>
+    <NextButton onClick={() => stepBackwards()} position={'55%'} disabled={step === 1} opacity={afterEverything}>Back</NextButton>
+
     </Container>
 }
 

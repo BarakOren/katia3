@@ -116,6 +116,14 @@ function App() {
 
     const location = useLocation().pathname
 
+    useEffect(() => {
+      clearAllBodyScrollLocks(bodyRef)
+      setAnimation(null)
+      setLeftSideToggle(false)
+      setAfterEverything(false)
+      setAnimationText("")
+    }, [location])
+
     const ChangeAnimation = (name) => {
       if(animation === null){
         StatisticsPageRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -174,7 +182,7 @@ function App() {
     <AnimationsDiv>
     </AnimationsDiv>
 
-    <Header animation={animation} />
+    <Header bodyRef={bodyRef} animation={animation} />
     <SideControls totalValue={totalValue} setTotalValue={setTotalValue} 
     Age={Age} SmokingPeriod={SmokingPeriod} NumberOfCig={NumberOfCig}
     animation={animation} afterEverything={afterEverything}

@@ -4,7 +4,6 @@ import lungsIcon from "../Assets/lungsIcon.svg"
 import teethIcon from "../Assets/teethIcon.svg"
 import mouthIcon from "../Assets/mouthIcon.svg"
 import { useLocation } from "react-router-dom"
-import { useEffect } from "react"
 
 const Container = styled.div`
     width: 95%;
@@ -18,6 +17,7 @@ const Container = styled.div`
     opacity: ${p => p.opacity ? 0 : 1};
     z-index: 10;
     transition: 3s opacity ease-in-out;
+    z-index: 100;
 `
 
 const About = styled(Link)`
@@ -81,7 +81,7 @@ const EmptyDiv = styled.div`
 
 const Header = (props) => {
     const {animation} = props
-    const location = useLocation().pathname 
+    const location = useLocation().pathname
 
     var setPosition = () => {
         if(location === "/lungs") return 0
