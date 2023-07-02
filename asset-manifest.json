@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/katia3/static/css/main.e6c13ad2.css",
-    "main.js": "/katia3/static/js/main.d86c206e.js",
+    "main.js": "/katia3/static/js/main.54b6f9eb.js",
     "static/media/tongueBG.mp4": "/katia3/static/media/tongueBG.d190439d6dfd34b59455.mp4",
     "static/media/Tuberculosis.wav": "/katia3/static/media/Tuberculosis.add9ba95f2ed4a236790.wav",
     "static/media/lungsbg.mp4": "/katia3/static/media/lungsbg.5597171d09a83f3c5996.mp4",
@@ -26,10 +26,10 @@
     "static/media/arrow.svg": "/katia3/static/media/arrow.d997264c553077e17fd820e02a2b7a98.svg",
     "static/media/leftsidearrow.svg": "/katia3/static/media/leftsidearrow.3c3211736d26b8aaa8f22604797e9671.svg",
     "main.e6c13ad2.css.map": "/katia3/static/css/main.e6c13ad2.css.map",
-    "main.d86c206e.js.map": "/katia3/static/js/main.d86c206e.js.map"
+    "main.54b6f9eb.js.map": "/katia3/static/js/main.54b6f9eb.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.d86c206e.js"
+    "static/js/main.54b6f9eb.js"
   ]
 }
