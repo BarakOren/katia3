@@ -1,52 +1,73 @@
-import React, { useRef, useEffect } from 'react';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import React, { useState } from 'react';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/storage';
+
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: "katia-391415.firebaseapp.com",
+    projectId: "katia-391415",
+    storageBucket: "katia-391415.appspot.com",
+    messagingSenderId: "360091417577",
+    appId: "1:360091417577:web:040c730bd90b755cf8e978",
+    measurementId: "G-TX6EE8PTC6"
+};
+
+firebase.initializeApp(firebaseConfig);
+const storage = firebase.storage();
 
 const ThreeScene = () => {
-  const sceneRef = useRef(null);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [uploadProgress, setUploadProgress] = useState(0);
 
-  useEffect(() => {
-    // Set up the Three.js scene
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    sceneRef.current.appendChild(renderer.domElement);
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
 
-    // Add some objects to the scene
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+  function handleUpload() {
+    console.log("st")
+    if (selectedFile) {
+      const storageRef = storage.ref();
+      const fileRef = storageRef.child(`audio/${selectedFile.name}`);
+      const uploadTask = fileRef.put(selectedFile);
 
-    // Set up controls
-    const controls = new OrbitControls(camera, renderer.domElement);
-
-    // Position the camera
-    camera.position.z = 5;
-
-    // Define the animation loop
-    function animate() {
-      // Rotate the scene around the Y-axis
-      scene.rotation.y += 0.01;
-
-      // Render the scene
-      renderer.render(scene, camera);
-
-      // Call animate again on the next frame
-      requestAnimationFrame(animate);
+      uploadTask.on(
+        'state_changed',
+        (snapshot) => {
+          // Track upload progress
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setUploadProgress(progress);
+        },
+        (error) => {
+          // Handle upload error
+          console.log("eror")
+          console.log(error);
+        },
+        () => {
+          console.log("nu")
+          // Handle successful upload
+          uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+            console.log('File available at', downloadURL);
+            // Do something with the downloadURL (e.g., save it to a database)
+          });
+        }
+      );
     }
 
-    // Start the animation loop
-    animate();
+}
 
-    // Clean up the scene when the component is unmounted
-    return () => {
-      sceneRef.current.removeChild(renderer.domElement);
-    };
-  }, []);
+function handleChange(event) {
+  setSelectedFile(event.target.files[0]);
+}
 
-  return <div ref={sceneRef} />;
-};
+  return (
+    <div style={{marginTop: "400px"}}>
+    <input type="file" accept="audio/*" onChange={handleFileChange} />
+    <button onClick={handleUpload}>Upload</button>
+    {uploadProgress > 0 && <div>Progress: {uploadProgress}%</div>}
+    </div>
+  );
+}
 
 export default ThreeScene;

@@ -9,6 +9,7 @@ import LungsCollapseSound from "../../../Assets/Lung-collapse.wav";
 import AsthmaSound from "../../../Assets/asthma.wav";
 
 
+
 const Container = styled.div`
     width: 30vw;
     height: 100vh;
@@ -55,6 +56,9 @@ const LeftSideContainer = (props) => {
 
     const {bodyRef, setAnimation, leftSideToggle, setLeftSideToggle, setAfterEverything, animationText, animation, setPlay} = props
     
+    const [sound, setSound] = useState()
+    const [loading, setLoading] = useState(false)
+
     useEffect(() => {
         if(animation !== null){
             setLeftSideToggle(true)
@@ -70,35 +74,38 @@ const LeftSideContainer = (props) => {
     const Cancer = useRef(new Audio(CancerSound));
     const LungCollapse = useRef(new Audio(LungsCollapseSound)); 
     const Asthma = useRef(new Audio(AsthmaSound)); 
+
+    const testRef = useRef(new Audio(sound))
     
     const [progress, setProgress] = useState(0)
     
-    useEffect(() => {
-        if(playing){
-            const interval = setInterval(() => {
-                if(animation === "Tuberculosis") {
-                    setProgress(Tuberculosis.current.currentTime / Tuberculosis.current.duration * 100)
-                }
-                else if(animation === "Cancer") {
-                    setProgress(Cancer.current.currentTime / Cancer.current.duration * 100)
-                }
-                else if(animation === "Lung collapse") {
-                    setProgress(LungCollapse.current.currentTime / LungCollapse.current.duration * 100)
-                }
-                else if(animation === "Asthma") {
-                    console.log("Lung collapse")
-                    setProgress(Asthma.current.currentTime / Asthma.current.duration * 100)
-                }
+    // useEffect(() => {
+    //     if(playing){
+    //         const interval = setInterval(() => {
+    //             if(animation === "Tuberculosis") {
+    //                 setProgress(Tuberculosis.current.currentTime / Tuberculosis.current.duration * 100)
+    //             }
+    //             else if(animation === "Cancer") {
+    //                 setProgress(Cancer.current.currentTime / Cancer.current.duration * 100)
+    //             }
+    //             else if(animation === "Lung collapse") {
+    //                 setProgress(LungCollapse.current.currentTime / LungCollapse.current.duration * 100)
+    //             }
+    //             else if(animation === "Asthma") {
+    //                 setProgress(Asthma.current.currentTime / Asthma.current.duration * 100)
+    //             }
                 
-            }, 100);
+    //         }, 100);
         
-        return () => clearInterval(interval);
-        }
+    //     return () => clearInterval(interval);
+    //     }
       
-    }, [playing, animation]);
+    // }, [playing, animation]);
+
 
     const play = () => {
         setPlaying(true);
+        setLoading(true)
         if(animation === "Tuberculosis") {
             Tuberculosis.current.play()
         }
@@ -130,14 +137,12 @@ const LeftSideContainer = (props) => {
     };
 
 
-
-
     return <Container left={leftSideToggle}>
     <BackButton pause={pause} setAnimation={setAnimation} animation={animation} bodyRef={bodyRef} />
         <Middle>
         <ButtonAndTextContainer>
         <TextArea animation={animation} animationText={animationText} />
-        <Listen playing={playing} pause={pause} progress={progress} setProgress={setProgress} animation={animation} bodyRef={bodyRef} setAnimation={setAnimation} setToggle={setLeftSideToggle} setAfterEverything={setAfterEverything} play={play}/>
+        <Listen loading={loading} playing={playing} pause={pause} progress={progress} setProgress={setProgress} animation={animation} bodyRef={bodyRef} setAnimation={setAnimation} setToggle={setLeftSideToggle} setAfterEverything={setAfterEverything} play={play}/>
         </ButtonAndTextContainer>
         </Middle>
     </Container>

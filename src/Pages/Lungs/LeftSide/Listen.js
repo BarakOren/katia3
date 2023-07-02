@@ -36,7 +36,7 @@ const Button = styled.button`
 
 const Listen = (props) => {
 
-    const {playing, pause, progress, setProgress, animation, bodyRef, setAnimation, setToggle, setAfterEverything, play } = props
+    const {loading, playing, pause, progress, setProgress, animation, bodyRef, setAnimation, setToggle, setAfterEverything, play } = props
     
     // onClick={() => {setAfterEverything(true); setToggle(false)}
 
@@ -48,7 +48,7 @@ const Listen = (props) => {
         }
     }, [animation])
 
-    return <Button progress={progress} isPlaying={playing} onClick={playing ? pause : play} alt="Liaten button">Listen</Button>
+    return <Button progress={progress} isPlaying={playing} onClick={playing ? pause : play} alt="Liaten button">{playing ? "Stop" : "Listen"}</Button>
 }
 
 export default Listen;

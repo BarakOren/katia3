@@ -14,6 +14,7 @@ import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'bo
 import MainMouthPage from "./Pages/Mouth/MainMouthPage"
 import MainTonguePage from "./Pages/Tongue/MainTonguePage";
 import ThreeScene from "./test/ThreeScene";
+
 const GlobalStyle = createGlobalStyle
 `
 body{
