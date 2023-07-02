@@ -3,6 +3,10 @@ import BackButton from "./BackButton"
 import TextArea from "./TextArea"
 import Listen from "./Listen"
 import {useEffect, useRef, useState} from "react";
+import StomatitisSound from "../../../Assets/Stomatitis.wav"
+import BadSmellSound from "../../../Assets/Bad-smell.wav"
+import LossOfTasteSound from "../../../Assets/Loss-of-taste.wav"
+import PlaqueSound from "../../../Assets/Plaque.wav"
 
 const Container = styled.div`
     width: 30vw;
@@ -61,10 +65,10 @@ const LeftSideContainer = (props) => {
 
     const [playing, setPlaying] = useState(false);
    
-    const Stomatitis = useRef(new Audio('https://cdn.whyp.it/3b1bcd9f-19f3-4927-baa7-84a1c2f29f4e.mp3'));
-    const BadSmell = useRef(new Audio('https://cdn.whyp.it/b6b0a658-356d-4edb-9cf8-8ba6256007f0.mp3'));
-    const LossOfTaste = useRef(new Audio('https://cdn.whyp.it/1cd0acf3-e2bb-4f2e-9148-4c851bd6b873.mp3')); 
-    const Plaque = useRef(new Audio('https://cdn.whyp.it/872b0407-bbc4-4ccd-8189-dad44a72a279.mp3')); 
+    const Stomatitis = useRef(new Audio(StomatitisSound));
+    const BadSmell = useRef(new Audio(BadSmellSound));
+    const LossOfTaste = useRef(new Audio(LossOfTasteSound)); 
+    const Plaque = useRef(new Audio(PlaqueSound)); 
 
     const [progress, setProgress] = useState(0)
     
@@ -93,7 +97,6 @@ const LeftSideContainer = (props) => {
 
     const play = () => {
         setPlaying(true);
-        console.log("first")
         if(animation === "Stomatitis") {
             Stomatitis.current.play()
         }

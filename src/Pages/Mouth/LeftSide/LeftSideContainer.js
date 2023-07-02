@@ -3,6 +3,11 @@ import BackButton from "./BackButton"
 import TextArea from "./TextArea"
 import Listen from "./Listen"
 import {useEffect, useRef, useState} from "react";
+import TartarSound from "../../../Assets/tartar.wav"
+import YellowTeethSound from "../../../Assets/Yellow-teeth.wav"
+import GumDiseasesSound from "../../../Assets/Gum-diseases.wav"
+import TeethCancerSound from "../../../Assets/cancer-teeth.wav"
+
 
 const Container = styled.div`
     width: 30vw;
@@ -61,10 +66,10 @@ const LeftSideContainer = (props) => {
 
     const [playing, setPlaying] = useState(false);
     
-    const Tartar = useRef(new Audio('https://cdn.whyp.it/50f4bed1-fe24-441e-9010-86f45248961f.mp3'));
-    const YellowTeeth = useRef(new Audio('https://cdn.whyp.it/0659ae58-c44e-4f79-8388-6a78a87714e9.mp3'));
-    const GumDiseases = useRef(new Audio('https://cdn.whyp.it/eb7f4927-1dc1-4c00-8438-adecabf3a0f1.mp3')); 
-    const TeethCancer = useRef(new Audio('https://cdn.whyp.it/13bfac72-2d1c-41bf-aff0-2d33652b0b04.mp3')); 
+    const Tartar = useRef(new Audio(TartarSound));
+    const YellowTeeth = useRef(new Audio(YellowTeethSound));
+    const GumDiseases = useRef(new Audio(GumDiseasesSound)); 
+    const TeethCancer = useRef(new Audio(TeethCancerSound)); 
 
     const [progress, setProgress] = useState(0)
     
@@ -95,7 +100,6 @@ const LeftSideContainer = (props) => {
         console.log(animation)
         setPlaying(true);
         if(animation === "Tartar") {
-            console.log("true")
             Tartar.current.play()
         }
         else if(animation === "Yellow teeth") {

@@ -13,7 +13,7 @@ import { useLocation } from "react-router-dom";
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import MainMouthPage from "./Pages/Mouth/MainMouthPage"
 import MainTonguePage from "./Pages/Tongue/MainTonguePage";
-
+import ThreeScene from "./test/ThreeScene";
 const GlobalStyle = createGlobalStyle
 `
 body{
@@ -190,6 +190,7 @@ function App() {
     />
     <Routes>
     <Route path="/" element={<IntroPage />} />
+    <Route path="/test" element={<ThreeScene />} />
     <Route path="/lungs" element={<MainLungsPage leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} StatisticsPageRef={StatisticsPageRef} ChangeAnimation={ChangeAnimation} animationText={animationText} setAnimationText={setAnimationText} animation={animation} setAnimation={setAnimation} totalValue={totalValue} setTotalValue={setTotalValue} Age={Age} SmokingPeriod={SmokingPeriod} NumberOfCig={NumberOfCig} />} />
     <Route path="/teeth" element={<MainMouthPage leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} StatisticsPageRef={StatisticsPageRef} ChangeAnimation={ChangeAnimation} animationText={animationText} setAnimationText={setAnimationText} animation={animation} setAnimation={setAnimation} totalValue={totalValue} setTotalValue={setTotalValue} Age={Age} SmokingPeriod={SmokingPeriod} NumberOfCig={NumberOfCig} />} />
     <Route path="/tongue" element={<MainTonguePage leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} StatisticsPageRef={StatisticsPageRef} ChangeAnimation={ChangeAnimation} animationText={animationText} setAnimationText={setAnimationText} animation={animation} setAnimation={setAnimation} totalValue={totalValue} setTotalValue={setTotalValue} Age={Age} SmokingPeriod={SmokingPeriod} NumberOfCig={NumberOfCig} />} />

@@ -3,6 +3,11 @@ import BackButton from "./BackButton"
 import TextArea from "./TextArea"
 import Listen from "./Listen"
 import {useEffect, useRef, useState} from "react";
+import TuberculosisSound from "../../../Assets/Tuberculosis.wav";
+import CancerSound from "../../../Assets/cancer.wav";
+import LungsCollapseSound from "../../../Assets/Lung-collapse.wav";
+import AsthmaSound from "../../../Assets/asthma.wav";
+
 
 const Container = styled.div`
     width: 30vw;
@@ -61,10 +66,10 @@ const LeftSideContainer = (props) => {
 
     const [playing, setPlaying] = useState(false);
 
-    const Tuberculosis = useRef(new Audio('https://cdn.whyp.it/69d75346-aa8e-4652-8f03-83bfdddcfaaa.mp3'));
-    const Cancer = useRef(new Audio('https://cdn.whyp.it/d60a197a-7c42-4665-b17b-40809f049fdf.mp3'));
-    const LungCollapse = useRef(new Audio('https://cdn.whyp.it/5d009d92-ae74-4d42-ade6-f80338bfd66b.mp3')); 
-    const Asthma = useRef(new Audio('https://cdn.whyp.it/295e8b25-2f4b-4bcc-9f04-e21c5dd159de.mp3')); 
+    const Tuberculosis = useRef(new Audio(TuberculosisSound));
+    const Cancer = useRef(new Audio(CancerSound));
+    const LungCollapse = useRef(new Audio(LungsCollapseSound)); 
+    const Asthma = useRef(new Audio(AsthmaSound)); 
     
     const [progress, setProgress] = useState(0)
     

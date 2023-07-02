@@ -33,7 +33,8 @@ const Text = styled.p`
     margin: 0;
     direction:rtl; 
     margin-top: 20px;
-
+    text-align: left;
+    padding-left: 7px;
     
 &::-webkit-scrollbar{
   width: 3px;
