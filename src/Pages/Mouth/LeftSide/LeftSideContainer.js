@@ -71,33 +71,32 @@ const LeftSideContainer = (props) => {
     const GumDiseases = useRef(new Audio(GumDiseasesSound)); 
     const TeethCancer = useRef(new Audio(TeethCancerSound)); 
 
-    const [progress, setProgress] = useState(0)
+    // const [progress, setProgress] = useState(0)
     
-    useEffect(() => {
-        if(playing){
-            const interval = setInterval(() => {
-                if(animation === "Tartar") {
-                    setProgress(Tartar.current.currentTime/Tartar.current.duration * 100)
-                }
-                else if(animation === "Yellow teeth") {
-                    setProgress(YellowTeeth.current.currentTime/YellowTeeth.current.duration * 100)
-                }
-                else if(animation === "Gum diseases") {
-                    setProgress(GumDiseases.current.currentTime/GumDiseases.current.duration * 100)
-                }
-                else if(animation === "Cancer") {
-                    setProgress(TeethCancer.current.currentTime/TeethCancer.current.duration * 100)
-                }
+    // useEffect(() => {
+    //     if(playing){
+    //         const interval = setInterval(() => {
+    //             if(animation === "Tartar") {
+    //                 setProgress(Tartar.current.currentTime/Tartar.current.duration * 100)
+    //             }
+    //             else if(animation === "Yellow teeth") {
+    //                 setProgress(YellowTeeth.current.currentTime/YellowTeeth.current.duration * 100)
+    //             }
+    //             else if(animation === "Gum diseases") {
+    //                 setProgress(GumDiseases.current.currentTime/GumDiseases.current.duration * 100)
+    //             }
+    //             else if(animation === "Cancer") {
+    //                 setProgress(TeethCancer.current.currentTime/TeethCancer.current.duration * 100)
+    //             }
                 
-            }, 100);
+    //         }, 100);
         
-        return () => clearInterval(interval);
-        }
+    //     return () => clearInterval(interval);
+    //     }
       
-    }, [playing]);
+    // }, [playing]);
 
     const play = () => {
-        console.log(animation)
         setPlaying(true);
         if(animation === "Tartar") {
             Tartar.current.play()

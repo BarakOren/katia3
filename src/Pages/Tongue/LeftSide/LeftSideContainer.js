@@ -54,13 +54,13 @@ const LeftSideContainer = (props) => {
 
     const {bodyRef, setAnimation, leftSideToggle, setLeftSideToggle, setAfterEverything, animationText, animation, setPlay} = props
     
-    useEffect(() => {
-        if(animation !== null){
-            setLeftSideToggle(true)
-        } else {
-            setLeftSideToggle(false)
-        }
-    }, [animation])
+    // useEffect(() => {
+    //     if(animation !== null){
+    //         setLeftSideToggle(true)
+    //     } else {
+    //         setLeftSideToggle(false)
+    //     }
+    // }, [animation])
 
 
     const [playing, setPlaying] = useState(false);
@@ -70,30 +70,30 @@ const LeftSideContainer = (props) => {
     const LossOfTaste = useRef(new Audio(LossOfTasteSound)); 
     const Plaque = useRef(new Audio(PlaqueSound)); 
 
-    const [progress, setProgress] = useState(0)
+    // const [progress, setProgress] = useState(0)
     
-    useEffect(() => {
-        if(playing){
-            const interval = setInterval(() => {
-                if(animation === "Stomatitis") {
-                    setProgress(Stomatitis.current.currentTime/Stomatitis.current.duration * 100)
-                }
-                else if(animation === "Bad smell") {
-                    setProgress(BadSmell.current.currentTime/BadSmell.current.duration * 100)
-                }
-                else if(animation === "Loss of taste") {
-                    setProgress(LossOfTaste.current.currentTime/LossOfTaste.current.duration * 100)
-                }
-                else if(animation === "Plaque") {
-                    setProgress(Plaque.current.currentTime/Plaque.current.duration * 100)
-                }
+    // useEffect(() => {
+    //     if(playing){
+    //         const interval = setInterval(() => {
+    //             if(animation === "Stomatitis") {
+    //                 setProgress(Stomatitis.current.currentTime/Stomatitis.current.duration * 100)
+    //             }
+    //             else if(animation === "Bad smell") {
+    //                 setProgress(BadSmell.current.currentTime/BadSmell.current.duration * 100)
+    //             }
+    //             else if(animation === "Loss of taste") {
+    //                 setProgress(LossOfTaste.current.currentTime/LossOfTaste.current.duration * 100)
+    //             }
+    //             else if(animation === "Plaque") {
+    //                 setProgress(Plaque.current.currentTime/Plaque.current.duration * 100)
+    //             }
                 
-            }, 100);
+    //         }, 100);
         
-        return () => clearInterval(interval);
-        }
+    //     return () => clearInterval(interval);
+    //     }
       
-    }, [playing]);
+    // }, [playing]);
 
     const play = () => {
         setPlaying(true);

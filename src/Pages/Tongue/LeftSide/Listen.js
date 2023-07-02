@@ -40,15 +40,15 @@ const Listen = (props) => {
     
     // onClick={() => {setAfterEverything(true); setToggle(false)}
 
-    useEffect(() => {
-        if(!animation){
-            setTimeout(() => {
-                setProgress(0)
-            }, 3000)
-        }
-    }, [animation])
+    // useEffect(() => {
+    //     if(!animation){
+    //         setTimeout(() => {
+    //             setProgress(0)
+    //         }, 3000)
+    //     }
+    // }, [animation])
 
-    return <Button progress={progress} isPlaying={playing} onClick={playing ? pause : play} alt="Liaten button">Listen</Button>
+    return <Button progress={progress} isPlaying={playing} onClick={playing ? pause : play} alt="Liaten button">{playing ? "Stop" : "Listen"}</Button>
 }
 
 export default Listen;
