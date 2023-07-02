@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/katia3/static/css/main.e6c13ad2.css",
-    "main.js": "/katia3/static/js/main.616370fc.js",
+    "main.js": "/katia3/static/js/main.d86c206e.js",
     "static/media/tongueBG.mp4": "/katia3/static/media/tongueBG.d190439d6dfd34b59455.mp4",
     "static/media/Tuberculosis.wav": "/katia3/static/media/Tuberculosis.add9ba95f2ed4a236790.wav",
     "static/media/lungsbg.mp4": "/katia3/static/media/lungsbg.5597171d09a83f3c5996.mp4",
@@ -23,14 +23,13 @@
     "static/media/teethIcon.svg": "/katia3/static/media/teethIcon.e04c547211e9220fa5eba451f70d04fc.svg",
     "static/media/soundicon.svg": "/katia3/static/media/soundicon.69fa432040d125049968cbc2b520c3c7.svg",
     "static/media/logo.svg": "/katia3/static/media/logo.bafa370b79f30805ee6967e0601a36ad.svg",
-    "static/media/AfterEverythingSvg.svg": "/katia3/static/media/AfterEverythingSvg.e073b6c1031411e2c95919686e57033c.svg",
     "static/media/arrow.svg": "/katia3/static/media/arrow.d997264c553077e17fd820e02a2b7a98.svg",
     "static/media/leftsidearrow.svg": "/katia3/static/media/leftsidearrow.3c3211736d26b8aaa8f22604797e9671.svg",
     "main.e6c13ad2.css.map": "/katia3/static/css/main.e6c13ad2.css.map",
-    "main.616370fc.js.map": "/katia3/static/js/main.616370fc.js.map"
+    "main.d86c206e.js.map": "/katia3/static/js/main.d86c206e.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.616370fc.js"
+    "static/js/main.d86c206e.js"
   ]
 }
