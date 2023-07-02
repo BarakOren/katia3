@@ -67,6 +67,13 @@ const LeftSideContainer = (props) => {
         }
     }, [animation])
 
+    function handleImageLoad() {
+        console.log('sound loaded!');
+      }
+      
+
+ 
+
 
     const [playing, setPlaying] = useState(false);
 
@@ -74,6 +81,25 @@ const LeftSideContainer = (props) => {
     const Cancer = useRef(new Audio(CancerSound));
     const LungCollapse = useRef(new Audio(LungsCollapseSound)); 
     const Asthma = useRef(new Audio(AsthmaSound)); 
+
+    useEffect(() => {
+        const handleAudioLoad = () => {
+          console.log('Audio loaded!');
+          // Perform any actions you need when the audio is loaded
+        };
+    
+        Tuberculosis.current.addEventListener('loadeddata', handleAudioLoad);
+        Cancer.current.addEventListener('loadeddata', handleAudioLoad);
+        LungCollapse.current.addEventListener('loadeddata', handleAudioLoad);
+        Asthma.current.addEventListener('loadeddata', handleAudioLoad);
+    
+        return () => {
+            Tuberculosis.current.removeEventListener('loadeddata', handleAudioLoad);
+            Cancer.current.removeEventListener('loadeddata', handleAudioLoad);
+            LungCollapse.current.removeEventListener('loadeddata', handleAudioLoad);
+            Asthma.current.removeEventListener('loadeddata', handleAudioLoad);
+        };
+      }, []);
 
     const [progress, setProgress] = useState(0)
     
