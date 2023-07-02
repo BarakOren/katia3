@@ -1,10 +1,22 @@
 {
   "files": {
     "main.css": "/katia3/static/css/main.e6c13ad2.css",
-    "main.js": "/katia3/static/js/main.4bcb0272.js",
+    "main.js": "/katia3/static/js/main.b437395a.js",
     "static/media/tongueBG.mp4": "/katia3/static/media/tongueBG.d190439d6dfd34b59455.mp4",
+    "static/media/Tuberculosis.wav": "/katia3/static/media/Tuberculosis.add9ba95f2ed4a236790.wav",
     "static/media/lungsbg.mp4": "/katia3/static/media/lungsbg.5597171d09a83f3c5996.mp4",
     "static/media/mouthBG.mp4": "/katia3/static/media/mouthBG.adb2caa9e37bd74a23dd.mp4",
+    "static/media/Plaque.wav": "/katia3/static/media/Plaque.72bb6e659552d65d4676.wav",
+    "static/media/Stomatitis.wav": "/katia3/static/media/Stomatitis.ed8f2b5cbbd1c68aac24.wav",
+    "static/media/Loss-of-taste.wav": "/katia3/static/media/Loss-of-taste.94b0603787685345aba0.wav",
+    "static/media/Bad-smell.wav": "/katia3/static/media/Bad-smell.c8f75bde74107658ee9c.wav",
+    "static/media/Yellow-teeth.wav": "/katia3/static/media/Yellow-teeth.a9f116e240cfb4712a19.wav",
+    "static/media/tartar.wav": "/katia3/static/media/tartar.79fe15722f374e939425.wav",
+    "static/media/Lung-collapse.wav": "/katia3/static/media/Lung-collapse.9cef17edfe07e51801e1.wav",
+    "static/media/cancer-teeth.wav": "/katia3/static/media/cancer-teeth.c21fe371d13d92c9d550.wav",
+    "static/media/Gum-diseases.wav": "/katia3/static/media/Gum-diseases.ce25cf0d86ec6c1a6b8a.wav",
+    "static/media/asthma.wav": "/katia3/static/media/asthma.527a87ca17ae7cfa000b.wav",
+    "static/media/cancer.wav": "/katia3/static/media/cancer.73ee5d758b9e5bca4d93.wav",
     "static/media/lungsIcon.svg": "/katia3/static/media/lungsIcon.78e73707bcc3a84f2b8b558b2bd83399.svg",
     "static/media/mouthIcon.svg": "/katia3/static/media/mouthIcon.e68c0178e514b0f6dc813c58fed9482a.svg",
     "index.html": "/katia3/index.html",
@@ -15,10 +27,10 @@
     "static/media/arrow.svg": "/katia3/static/media/arrow.d997264c553077e17fd820e02a2b7a98.svg",
     "static/media/leftsidearrow.svg": "/katia3/static/media/leftsidearrow.3c3211736d26b8aaa8f22604797e9671.svg",
     "main.e6c13ad2.css.map": "/katia3/static/css/main.e6c13ad2.css.map",
-    "main.4bcb0272.js.map": "/katia3/static/js/main.4bcb0272.js.map"
+    "main.b437395a.js.map": "/katia3/static/js/main.b437395a.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.4bcb0272.js"
+    "static/js/main.b437395a.js"
   ]
 }
