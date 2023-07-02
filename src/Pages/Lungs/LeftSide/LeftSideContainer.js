@@ -75,7 +75,7 @@ const LeftSideContainer = (props) => {
     const LungCollapse = useRef(new Audio(LungsCollapseSound)); 
     const Asthma = useRef(new Audio(AsthmaSound)); 
 
-    // const [progress, setProgress] = useState(0)
+    const [progress, setProgress] = useState(0)
     
     // useEffect(() => {
     //     if(playing){

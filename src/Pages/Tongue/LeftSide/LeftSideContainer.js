@@ -70,7 +70,7 @@ const LeftSideContainer = (props) => {
     const LossOfTaste = useRef(new Audio(LossOfTasteSound)); 
     const Plaque = useRef(new Audio(PlaqueSound)); 
 
-    // const [progress, setProgress] = useState(0)
+    const [progress, setProgress] = useState(0)
     
     // useEffect(() => {
     //     if(playing){

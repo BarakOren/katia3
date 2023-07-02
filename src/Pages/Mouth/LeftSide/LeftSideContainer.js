@@ -71,7 +71,7 @@ const LeftSideContainer = (props) => {
     const GumDiseases = useRef(new Audio(GumDiseasesSound)); 
     const TeethCancer = useRef(new Audio(TeethCancerSound)); 
 
-    // const [progress, setProgress] = useState(0)
+    const [progress, setProgress] = useState(0)
     
     // useEffect(() => {
     //     if(playing){
