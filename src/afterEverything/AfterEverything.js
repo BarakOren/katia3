@@ -1,6 +1,4 @@
 import styled, {css , keyframes} from "styled-components"
-import svg from "../Assets/AfterEverythingSvg.svg"
-import arrow from "../Assets/arrow.svg"
 import {useEffect, useState} from "react";
 import { useLocation } from "react-router-dom";
 
@@ -185,7 +183,7 @@ const NextButton = styled.button`
 
 const AfterEverything = (props) => {
 
-    const {leftSideToggle, setLeftSideToggle, bodyRef, afterEverything, setAfterEverything} = props
+    const { setLeftSideToggle , afterEverything, setAfterEverything} = props
     const [step, setStep] = useState(1)
     const [texts, setTexts] = useState({})
 

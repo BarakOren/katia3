@@ -3,13 +3,10 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls,  } from "@react-three/drei";
 import { useGLTF } from '@react-three/drei'
 import { useFrame, useLoader} from '@react-three/fiber'
-import * as THREE from 'three';
-import { MeshBasicMaterial, meshStandardMaterial } from 'three';
-import { TextureLoader } from 'three';
+import { useTexture } from '@react-three/drei';
 
 
 export function Model(props) {
-// const { nodes, materials } = useGLTF('/lungs.glb')
 const { nodes, materials } = useGLTF('/katia3/centeredlungs.glb')
 const {totalValue} = props;
   let color = parseInt(totalValue.NumberOfCig) + parseInt(totalValue.SmokingPeriod) + parseInt(totalValue.Age)
@@ -29,56 +26,69 @@ const {totalValue} = props;
         s: currentColor.s = devided
       })
   }, [totalValue])
-  const quaternion = new THREE.Quaternion();
-  let xAxis = new THREE.Vector3(1, 1, 0);
-  quaternion.setFromAxisAngle(xAxis, props.angle);
 
-  const meshRef = useRef(null)
-
-  // useFrame(({ clock }) => {
-  //   meshRef.current.rotation.y = clock.getElapsedTime()
-  // })
-
-  // const texture = new TextureLoader().load('/katia3/black.png');
-  let loader = new TextureLoader(); 
-  const texture = useLoader(TextureLoader, '/katia3/black.png'); 
+  const meshRef = useRef();
+  const sickRef = useRef();
+  const healthyRef = useRef();
 
 
-  return (
-    <group {...props} ref={meshRef} dispose={null}>
-    <mesh 
-  // material-color={`hsl(${currentColor.h}, ${currentColor.s}%, ${currentColor.l}%)`}
-    geometry={nodes.Circle.geometry} material={materials['Material.003']} position={[-0.197, -0.022, 0.07]} scale={1}>
-    <boxGeometry args={[10, 10, 10]} />
-    <meshBasicMaterial attach="material-0" color="000000" />
-    <meshBasicMaterial  map={texture} alphaMap={texture} transparent opacity={1} />
-   
-   </mesh>
-    <group position={[-0.254, 1.702, 0]} scale={0.152}>
-      <mesh geometry={nodes.Circle001_1.geometry} material={materials['Material.001']}>
-      
-      </mesh>
-      <mesh geometry={nodes.Circle001_2.geometry} material={materials['Material.002']}>
-      
-      </mesh>
-    </group>
-    <mesh geometry={nodes.Circle002.geometry} material={materials['Material.004']} position={[-0.197, -0.022, 0.07]} scale={0.152}>
-   
-    </mesh>
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.0095;
+    }
+    
+  });
+
+
+
+  const [opacity, setOpacity] = useState(1.0); 
+  
+  const handleOpacityChange = (event) => {
+    const newOpacity = parseFloat(event.target.value);
+    setOpacity(newOpacity);
+  };
+
+  useEffect(() => {
+    setOpacity(color * (1.0 / 185))
+    console.log(opacity)
+  }, [totalValue])
+
+  useEffect(() => {
+    sickRef.current.renderOrder = 1;
+    healthyRef.current.renderOrder = 0;
+  }, [])
+
+  const healthyTexture = useTexture('/katia3/IMAGE1.png');
+  const sickTexture = useTexture('/katia3/IMAGE2.png');
+
+  // console.log(color * (1.0 / 185))
+
+
+return (
+  <group {...props} dispose={null} ref={meshRef}>
+  <mesh ref={sickRef} geometry={nodes.Circle.geometry} material={materials['Material.003']} position={[-0.197, -0.022, 0.07]} scale={0.152}>
+  <meshStandardMaterial map={sickTexture} transparent opacity={opacity}  />
+  </mesh>
+
+  <group position={[-0.254, 1.702, 0]} scale={0.152}>
+    <mesh geometry={nodes.Circle001_1.geometry} material={materials['Material.001']} />
+    <mesh geometry={nodes.Circle001_2.geometry} material={materials['Material.002']} />
   </group>
-  )
+  <mesh ref={healthyRef} geometry={nodes.Circle002.geometry} material={materials['Material.004']} position={[-0.197, -0.022, 0.07]} scale={0.152}>
+  <meshStandardMaterial map={healthyTexture} transparent opacity={1}  />
+  </mesh>
+</group>
+)
 }
 
-// totalValue={totalValue}
 const ModelViewer = (props, { modelPath, scale = 1, position = [0, 0, 0] }) => {
   const {totalValue} = props;
   const size = 1
 
   return (
     <Canvas style={{width: '50vw', position: "absolute", top: '4%'}}>
-    <ambientLight intensity={0.8} />
-    <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-    <pointLight position={[10, 10, 10]} />
+    <ambientLight intensity={1} />
+
       <Suspense fallback={null}>
        <Model scale={[size, size, size]} totalValue={totalValue} />
       </Suspense>
@@ -86,6 +96,9 @@ const ModelViewer = (props, { modelPath, scale = 1, position = [0, 0, 0] }) => {
     </Canvas>
   );
 };
+
+// <spotLight position={[10, 10, 10]} angle={1} penumbra={1} />
+// <pointLight position={[10, 10, 10]} />
 
 
 export default ModelViewer;
