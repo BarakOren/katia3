@@ -13,7 +13,6 @@ import { useLocation } from "react-router-dom";
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import MainMouthPage from "./Pages/Mouth/MainMouthPage"
 import MainTonguePage from "./Pages/Tongue/MainTonguePage";
-import ThreeScene from "./test/ThreeScene";
 import TuberculosisSound from "./Assets/Tuberculosis.wav";
 import CancerSound from "./Assets/cancer.wav";
 import LungsCollapseSound from "./Assets/Lung-collapse.wav";
@@ -235,7 +234,6 @@ function App() {
     />
     <Routes>
     <Route path="/" element={<IntroPage />} />
-    <Route path="/test" element={<ThreeScene />} />
     <Route path="/lungs" element={<MainLungsPage 
       // Tuberculosis={Tuberculosis} Cancer={Cancer} LungCollapse={LungCollapse} Asthma={Asthma} 
       leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} StatisticsPageRef={StatisticsPageRef} ChangeAnimation={ChangeAnimation} animationText={animationText} setAnimationText={setAnimationText} animation={animation} setAnimation={setAnimation} totalValue={totalValue} setTotalValue={setTotalValue} Age={Age} SmokingPeriod={SmokingPeriod} NumberOfCig={NumberOfCig} />} />
