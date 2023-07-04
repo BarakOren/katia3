@@ -54,23 +54,36 @@ const LeftSideContainer = (props) => {
 
     const {bodyRef, setAnimation, leftSideToggle, setLeftSideToggle, setAfterEverything, animationText, animation, setPlay} = props
     
-    // useEffect(() => {
-    //     if(animation !== null){
-    //         setLeftSideToggle(true)
-    //     } else {
-    //         setLeftSideToggle(false)
-    //     }
-    // }, [animation])
+    useEffect(() => {
+        if(animation !== null){
+            setLeftSideToggle(true)
+        } else {
+            setLeftSideToggle(false)
+        }
+    }, [animation])
 
 
     const [playing, setPlaying] = useState(false);
    
-    const Stomatitis = useRef(new Audio(StomatitisSound));
-    const BadSmell = useRef(new Audio(BadSmellSound));
-    const LossOfTaste = useRef(new Audio(LossOfTasteSound)); 
-    const Plaque = useRef(new Audio(PlaqueSound)); 
 
     const [progress, setProgress] = useState(0)
+
+    const Stomatitis = useRef(null);
+    const BadSmell = useRef(null);
+    const LossOfTaste = useRef(null);
+    const Plaque = useRef(null);
+  
+        const [isLoaded, setIsLoaded] = useState(false);
+  
+        useEffect(() => {
+          if (!isLoaded) {
+            Stomatitis.current = new Audio(StomatitisSound);
+            BadSmell.current = new Audio(BadSmellSound);
+            LossOfTaste.current = new Audio(LossOfTasteSound);
+            Plaque.current = new Audio(PlaqueSound);
+            setIsLoaded(true);
+          }
+        }, [isLoaded]);
     
     // useEffect(() => {
     //     if(playing){
@@ -127,6 +140,7 @@ const LeftSideContainer = (props) => {
         }
     };
 
+
     return <Container left={leftSideToggle}>
     <BackButton pause={pause} setAnimation={setAnimation} animation={animation} bodyRef={bodyRef} />
         <Middle>
@@ -139,31 +153,3 @@ const LeftSideContainer = (props) => {
 }
 
 export default LeftSideContainer;
-
-
-    // const ref = useRef(null)
-    // const [element, setElement] = useState(null)
-    // const [precentage, setPrecentage] = useState(0)
-    // const [width, setWidth] = useState(0)
-    
-    // useEffect(() => {
-    //     const element = ref.current;
-    //     setElement(element)
-    //     setWidth(element.offsetWidth)
-
-    //   }, []);
-
-    //   const handleScroll = event => {
-        
-   
-
-    //     var height = element.scrollHeight - element.offsetHeight
-    //     var precentage = Math.floor(Math.floor(element.scrollTop) / height * 100)
-
-    //     if(precentage > 80){ setPrecentage(80); return} 
-
-    //     setPrecentage(precentage)
-    //   };
-    //   <div style={{ height: '100%', width: '100%', position: 'relative'}}>
-    //   <ScrollBar precentage={precentage}/>
-    //   </div>

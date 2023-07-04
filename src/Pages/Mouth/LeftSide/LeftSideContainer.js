@@ -63,13 +63,25 @@ const LeftSideContainer = (props) => {
         }
     }, [animation])
 
+    const Tartar = useRef(null);
+    const YellowTeeth = useRef(null);
+    const GumDiseases = useRef(null);
+    const TeethCancer = useRef(null);
+  
+        const [isLoaded, setIsLoaded] = useState(false);
+  
+        useEffect(() => {
+          if (!isLoaded) {
+            Tartar.current = new Audio(TartarSound);
+            YellowTeeth.current = new Audio(YellowTeethSound);
+            GumDiseases.current = new Audio(GumDiseasesSound);
+            TeethCancer.current = new Audio(TeethCancerSound);
+            setIsLoaded(true);
+          }
+        }, [isLoaded]);
+
 
     const [playing, setPlaying] = useState(false);
-    
-    const Tartar = useRef(new Audio(TartarSound));
-    const YellowTeeth = useRef(new Audio(YellowTeethSound));
-    const GumDiseases = useRef(new Audio(GumDiseasesSound)); 
-    const TeethCancer = useRef(new Audio(TeethCancerSound)); 
 
     const [progress, setProgress] = useState(0)
     

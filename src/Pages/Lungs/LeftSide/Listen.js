@@ -5,7 +5,8 @@ const Button = styled.button`
     align-self: flex-start;
     position: relative;
     margin-top: 30px;
-    padding: 3px 20px;
+    padding: 3px 0;
+    width: 80px;
     color: white;
     border: 1.5px solid white;
     background: none;

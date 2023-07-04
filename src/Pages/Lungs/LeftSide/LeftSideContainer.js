@@ -8,8 +8,6 @@ import CancerSound from "../../../Assets/cancer.wav";
 import LungsCollapseSound from "../../../Assets/Lung-collapse.wav";
 import AsthmaSound from "../../../Assets/asthma.wav";
 
-
-
 const Container = styled.div`
     width: 30vw;
     height: 100vh;
@@ -22,7 +20,6 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
 `
 
 const Relative = styled.div`
@@ -67,42 +64,27 @@ const LeftSideContainer = (props) => {
         }
     }, [animation])
 
-    function handleImageLoad() {
-        console.log('sound loaded!');
-      }
-      
-
- 
-
-
     const [playing, setPlaying] = useState(false);
-
-    const Tuberculosis = useRef(new Audio(TuberculosisSound));
-    const Cancer = useRef(new Audio(CancerSound));
-    const LungCollapse = useRef(new Audio(LungsCollapseSound)); 
-    const Asthma = useRef(new Audio(AsthmaSound)); 
-
-    useEffect(() => {
-        const handleAudioLoad = () => {
-          console.log('Audio loaded!');
-          // Perform any actions you need when the audio is loaded
-        };
-    
-        Tuberculosis.current.addEventListener('loadeddata', handleAudioLoad);
-        Cancer.current.addEventListener('loadeddata', handleAudioLoad);
-        LungCollapse.current.addEventListener('loadeddata', handleAudioLoad);
-        Asthma.current.addEventListener('loadeddata', handleAudioLoad);
-    
-        return () => {
-            Tuberculosis.current.removeEventListener('loadeddata', handleAudioLoad);
-            Cancer.current.removeEventListener('loadeddata', handleAudioLoad);
-            LungCollapse.current.removeEventListener('loadeddata', handleAudioLoad);
-            Asthma.current.removeEventListener('loadeddata', handleAudioLoad);
-        };
-      }, []);
-
     const [progress, setProgress] = useState(0)
-    
+     
+    const Tuberculosis = useRef(null);
+    const Cancer = useRef(null);
+    const LungCollapse = useRef(null);
+    const Asthma = useRef(null);
+  
+        const [isLoaded, setIsLoaded] = useState(false);
+  
+        useEffect(() => {
+          if (!isLoaded) {
+            // Load the sound
+            Tuberculosis.current = new Audio(TuberculosisSound);
+            Cancer.current = new Audio(CancerSound);
+            LungCollapse.current = new Audio(LungsCollapseSound);
+            Asthma.current = new Audio(AsthmaSound);
+  
+            setIsLoaded(true);
+          }
+        }, [isLoaded]);
     // useEffect(() => {
     //     if(playing){
     //         const interval = setInterval(() => {
@@ -129,7 +111,7 @@ const LeftSideContainer = (props) => {
 
     const play = () => {
         setPlaying(true);
-        setLoading(true)
+        // setLoading(true)
         if(animation === "Tuberculosis") {
             Tuberculosis.current.play()
         }

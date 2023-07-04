@@ -50,7 +50,6 @@ const {totalValue} = props;
 
   useEffect(() => {
     setOpacity(color * (1.0 / 185))
-    console.log(opacity)
   }, [totalValue])
 
   useEffect(() => {

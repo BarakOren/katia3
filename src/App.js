@@ -14,6 +14,10 @@ import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'bo
 import MainMouthPage from "./Pages/Mouth/MainMouthPage"
 import MainTonguePage from "./Pages/Tongue/MainTonguePage";
 import ThreeScene from "./test/ThreeScene";
+import TuberculosisSound from "./Assets/Tuberculosis.wav";
+import CancerSound from "./Assets/cancer.wav";
+import LungsCollapseSound from "./Assets/Lung-collapse.wav";
+import AsthmaSound from "./Assets/asthma.wav";
 
 const GlobalStyle = createGlobalStyle
 `
@@ -73,12 +77,51 @@ const AnimationsDiv = styled.div`
   z-index: 30;
 `
 
-const PlayAnimation = styled.button`
-  padding: 10px 15px;
-  `
-
 
 function App() {
+
+      // const Tuberculosis = useRef(new Audio(TuberculosisSound));
+      // const Cancer = useRef(new Audio(CancerSound));
+      // const LungCollapse = useRef(new Audio(LungsCollapseSound)); 
+      // const Asthma = useRef(new Audio(AsthmaSound)); 
+  // const Tuberculosis = useRef(null);
+  // const Cancer = useRef(null);
+  // const LungCollapse = useRef(null);
+  // const Asthma = useRef(null);
+
+  //     const [isLoaded, setIsLoaded] = useState(false);
+
+  //     useEffect(() => {
+  //       if (!isLoaded) {
+  //         // Load the sound
+  //         Tuberculosis.current = new Audio(TuberculosisSound);
+  //         Cancer.current = new Audio(CancerSound);
+  //         LungCollapse.current = new Audio(LungsCollapseSound);
+  //         Asthma.current = new Audio(AsthmaSound);
+
+  //         setIsLoaded(true);
+  //       }
+  //     }, [isLoaded]);
+  
+  // useEffect(() => {
+  //   const handleAudioLoad = () => {
+  //     console.log('Audio loaded!');
+  //     // Perform any actions you need when the audio is loaded
+  //   };
+
+  //   Tuberculosis.current.addEventListener('loadeddata', () => {console.log("Tuberculosis loaded")});
+  //   Cancer.current.addEventListener('loadeddata', () => {console.log("Tuberculosis loaded")});
+  //   LungCollapse.current.addEventListener('loadeddata', () => {console.log("Tuberculosis loaded")});
+  //   Asthma.current.addEventListener('loadeddata', () => {console.log("Tuberculosis loaded")});
+
+
+  //   return () => {
+  //       Tuberculosis.current.removeEventListener('loadeddata', handleAudioLoad);
+  //       Cancer.current.removeEventListener('loadeddata', handleAudioLoad);
+  //       LungCollapse.current.removeEventListener('loadeddata', handleAudioLoad);
+  //       Asthma.current.removeEventListener('loadeddata', handleAudioLoad);
+  //   };
+  // }, []);  
 
       const NumberOfCig = {
         constName: "NumberOfCig",
@@ -169,11 +212,12 @@ function App() {
     const bodyRef = useRef(null)
     const StatisticsPageRef = useRef(null)
 
+  
+
     const playAfterEverying = () => {
       setAfterEverything(!afterEverything)
         if(!afterEverything){disableBodyScroll(bodyRef); return}
         else if(afterEverything){enableBodyScroll(bodyRef); return}  
-      
     }
 
   return (
@@ -192,7 +236,9 @@ function App() {
     <Routes>
     <Route path="/" element={<IntroPage />} />
     <Route path="/test" element={<ThreeScene />} />
-    <Route path="/lungs" element={<MainLungsPage leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} StatisticsPageRef={StatisticsPageRef} ChangeAnimation={ChangeAnimation} animationText={animationText} setAnimationText={setAnimationText} animation={animation} setAnimation={setAnimation} totalValue={totalValue} setTotalValue={setTotalValue} Age={Age} SmokingPeriod={SmokingPeriod} NumberOfCig={NumberOfCig} />} />
+    <Route path="/lungs" element={<MainLungsPage 
+      // Tuberculosis={Tuberculosis} Cancer={Cancer} LungCollapse={LungCollapse} Asthma={Asthma} 
+      leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} StatisticsPageRef={StatisticsPageRef} ChangeAnimation={ChangeAnimation} animationText={animationText} setAnimationText={setAnimationText} animation={animation} setAnimation={setAnimation} totalValue={totalValue} setTotalValue={setTotalValue} Age={Age} SmokingPeriod={SmokingPeriod} NumberOfCig={NumberOfCig} />} />
     <Route path="/teeth" element={<MainMouthPage leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} StatisticsPageRef={StatisticsPageRef} ChangeAnimation={ChangeAnimation} animationText={animationText} setAnimationText={setAnimationText} animation={animation} setAnimation={setAnimation} totalValue={totalValue} setTotalValue={setTotalValue} Age={Age} SmokingPeriod={SmokingPeriod} NumberOfCig={NumberOfCig} />} />
     <Route path="/tongue" element={<MainTonguePage leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} StatisticsPageRef={StatisticsPageRef} ChangeAnimation={ChangeAnimation} animationText={animationText} setAnimationText={setAnimationText} animation={animation} setAnimation={setAnimation} totalValue={totalValue} setTotalValue={setTotalValue} Age={Age} SmokingPeriod={SmokingPeriod} NumberOfCig={NumberOfCig} />} />
 
