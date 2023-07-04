@@ -142,6 +142,16 @@ const LeftSideContainer = (props) => {
         }
     };
 
+    useEffect(() => {
+        if(animation === null){
+            LungCollapse.current.pause()
+            Asthma.current.pause()
+            Cancer.current.pause()
+            Tuberculosis.current.pause()
+            setPlaying(false)
+        }
+    }, [animation])
+
 
     return <Container left={leftSideToggle}>
     <BackButton pause={pause} setAnimation={setAnimation} animation={animation} bodyRef={bodyRef} />

@@ -83,14 +83,6 @@ const Span = styled.span`
     font-weight: 400;
     font-style: italic;
 `
-const GitBackground = styled.img`
-    width: 100%;
-    height: auto;
-`
-
-// <BackgroundVideo autoPlay loop muted>
-//         <source src={background} type='video/mp4' />
-//     </BackgroundVideo>
 
 const TonguePage = (props) => {
 

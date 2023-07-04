@@ -4,50 +4,26 @@ import { OrbitControls,  } from "@react-three/drei";
 import { useGLTF } from '@react-three/drei'
 import { useFrame, useLoader} from '@react-three/fiber'
 import { useTexture } from '@react-three/drei';
+import {RepeatWrapping } from "three"
 
 
 export function Model(props) {
 const { nodes, materials } = useGLTF('/katia3/centeredlungs.glb')
 const {totalValue} = props;
-  let color = parseInt(totalValue.NumberOfCig) + parseInt(totalValue.SmokingPeriod) + parseInt(totalValue.Age)
-
-  let devided = 70 - color / 2
-
-  const [currentColor, setCurrentColor] = useState({
-    h:353, 
-    s:60,
-    l:60
-  })
-
-  useEffect(() => {
-      setCurrentColor({
-        ...currentColor,
-        l: currentColor.l = devided ,
-        s: currentColor.s = devided
-      })
-  }, [totalValue])
+let color = parseInt(totalValue.NumberOfCig) + parseInt(totalValue.SmokingPeriod) + parseInt(totalValue.Age)
 
   const meshRef = useRef();
   const sickRef = useRef();
   const healthyRef = useRef();
 
-
   useFrame(() => {
     if (meshRef.current) {
       meshRef.current.rotation.y += 0.0095;
     }
-    
   });
-
-
 
   const [opacity, setOpacity] = useState(1.0); 
   
-  const handleOpacityChange = (event) => {
-    const newOpacity = parseFloat(event.target.value);
-    setOpacity(newOpacity);
-  };
-
   useEffect(() => {
     setOpacity(color * (1.0 / 185))
   }, [totalValue])
@@ -57,11 +33,10 @@ const {totalValue} = props;
     healthyRef.current.renderOrder = 0;
   }, [])
 
-  const healthyTexture = useTexture('/katia3/IMAGE1.png');
-  const sickTexture = useTexture('/katia3/IMAGE2.png');
+  const healthyTexture = useTexture('/katia3/lungsHealthyTexture.png');
+  const sickTexture = useTexture('/katia3/lungsSickTexture.png');
 
   // console.log(color * (1.0 / 185))
-
 
 return (
   <group {...props} dispose={null} ref={meshRef}>
@@ -80,7 +55,7 @@ return (
 )
 }
 
-const ModelViewer = (props, { modelPath, scale = 1, position = [0, 0, 0] }) => {
+const ModelViewer = (props) => {
   const {totalValue} = props;
   const size = 1
 
@@ -102,5 +77,21 @@ const ModelViewer = (props, { modelPath, scale = 1, position = [0, 0, 0] }) => {
 
 export default ModelViewer;
 
+
+// let devided = 70 - color / 2
+
+// const [currentColor, setCurrentColor] = useState({
+//   h:353, 
+//   s:60,
+//   l:60
+// })
+
+// useEffect(() => {
+//     setCurrentColor({
+//       ...currentColor,
+//       l: currentColor.l = devided ,
+//       s: currentColor.s = devided
+//     })
+// }, [totalValue])
 
   

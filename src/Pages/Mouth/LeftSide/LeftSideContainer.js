@@ -140,6 +140,16 @@ const LeftSideContainer = (props) => {
         }
     };
 
+    useEffect(() => {
+        if(animation === null){
+            Tartar.current.pause()
+            YellowTeeth.current.pause()
+            GumDiseases.current.pause()
+            TeethCancer.current.pause()
+            setPlaying(false)
+        }
+    }, [animation])
+
     return <Container left={leftSideToggle}>
     <BackButton pause={pause} setAnimation={setAnimation} animation={animation} bodyRef={bodyRef} />
         <Middle>

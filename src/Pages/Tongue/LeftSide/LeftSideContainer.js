@@ -140,6 +140,16 @@ const LeftSideContainer = (props) => {
         }
     };
 
+    useEffect(() => {
+        if(animation === null){
+            Stomatitis.current.pause()
+            BadSmell.current.pause()
+            LossOfTaste.current.pause()
+            Plaque.current.pause()
+            setPlaying(false)
+        }
+    }, [animation])
+
 
     return <Container left={leftSideToggle}>
     <BackButton pause={pause} setAnimation={setAnimation} animation={animation} bodyRef={bodyRef} />

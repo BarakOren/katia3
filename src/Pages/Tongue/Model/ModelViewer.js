@@ -1,12 +1,21 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useGLTF } from '@react-three/drei'
+import { useTexture } from '@react-three/drei';
+import { useFrame, useLoader} from '@react-three/fiber'
 
 export function Model(props) {
 const { nodes, materials } = useGLTF('/katia3/tongue.glb')
 const {totalValue} = props;
   let color = parseInt(totalValue.NumberOfCig) + parseInt(totalValue.SmokingPeriod) + parseInt(totalValue.Age)
+  const meshRef = useRef();
+
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.0095;
+    }
+  });
 
   let devided = 70 - color / 4
 
@@ -23,16 +32,22 @@ const {totalValue} = props;
       })
   }, [totalValue])
 
-
   return (
-      <group {...props} dispose={null}>
+      <group {...props} dispose={null} ref={meshRef}>
       <mesh 
       material-color={`hsl(${currentColor.h}, ${currentColor.s}%, ${currentColor.l}%)`}
-      geometry={nodes.Cube.geometry} material={materials['Material.002']} rotation={[0.128, 0, 0]} />
+      geometry={nodes.Cube.geometry} material={materials['Material.002']} rotation={[0.128, 0, 0]}>
+      
+      </mesh>
+   
     </group>
   )
 }
-
+// <mesh 
+// ref={sickRef}
+// geometry={nodes.Cube.geometry} material={materials['Material.002']} rotation={[0.128, 0, 0]}>
+// <meshStandardMaterial map={sickTexture} opacity={opacity}  />
+// </mesh>
 
 
 // totalValue={totalValue}
