@@ -1,7 +1,8 @@
 {
   "files": {
     "main.css": "/katia3/static/css/main.e6c13ad2.css",
-    "main.js": "/katia3/static/js/main.7e4b7767.js",
+    "main.js": "/katia3/static/js/main.0f3f3cac.js",
+    "static/media/background-music.mp3": "/katia3/static/media/background-music.4d972fda86984726a2e2.mp3",
     "static/media/tongueBG.mp4": "/katia3/static/media/tongueBG.d190439d6dfd34b59455.mp4",
     "static/media/Tuberculosis.wav": "/katia3/static/media/Tuberculosis.add9ba95f2ed4a236790.wav",
     "static/media/lungsbg.mp4": "/katia3/static/media/lungsbg.5597171d09a83f3c5996.mp4",
@@ -17,6 +18,7 @@
     "static/media/Gum-diseases.wav": "/katia3/static/media/Gum-diseases.ce25cf0d86ec6c1a6b8a.wav",
     "static/media/asthma.wav": "/katia3/static/media/asthma.527a87ca17ae7cfa000b.wav",
     "static/media/cancer.wav": "/katia3/static/media/cancer.73ee5d758b9e5bca4d93.wav",
+    "static/media/introBackground.mp4": "/katia3/static/media/introBackground.523b5ecae069b0855adc.mp4",
     "static/media/lungsIcon.svg": "/katia3/static/media/lungsIcon.78e73707bcc3a84f2b8b558b2bd83399.svg",
     "static/media/mouthIcon.svg": "/katia3/static/media/mouthIcon.e68c0178e514b0f6dc813c58fed9482a.svg",
     "index.html": "/katia3/index.html",
@@ -26,10 +28,10 @@
     "static/media/arrow.svg": "/katia3/static/media/arrow.d997264c553077e17fd820e02a2b7a98.svg",
     "static/media/leftsidearrow.svg": "/katia3/static/media/leftsidearrow.3c3211736d26b8aaa8f22604797e9671.svg",
     "main.e6c13ad2.css.map": "/katia3/static/css/main.e6c13ad2.css.map",
-    "main.7e4b7767.js.map": "/katia3/static/js/main.7e4b7767.js.map"
+    "main.0f3f3cac.js.map": "/katia3/static/js/main.0f3f3cac.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.7e4b7767.js"
+    "static/js/main.0f3f3cac.js"
   ]
 }
