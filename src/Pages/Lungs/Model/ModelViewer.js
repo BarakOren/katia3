@@ -1,12 +1,14 @@
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls,  } from "@react-three/drei";
-import { useGLTF } from '@react-three/drei'
 import { useFrame, useLoader} from '@react-three/fiber'
-import { useTexture } from '@react-three/drei';
+import { useGLTF, useTexture } from '@react-three/drei';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+
 
 export function Model(props) {
-const { nodes, materials } = useGLTF('/katia3/centeredlungs.glb')
+const { scene, nodes, materials } = useGLTF('/katia3/centeredlungs.glb')
+
 const {totalValue} = props;
 let color = parseInt(totalValue.NumberOfCig) + parseInt(totalValue.SmokingPeriod) + parseInt(totalValue.Age)
 
@@ -28,7 +30,7 @@ let color = parseInt(totalValue.NumberOfCig) + parseInt(totalValue.SmokingPeriod
   const [opacity, setOpacity] = useState(1.0); 
   
   useEffect(() => {
-    setOpacity(color * (0.7 / 185))
+    setOpacity(color * (0.9 / 185))
   }, [totalValue])
 
 
@@ -42,16 +44,14 @@ let color = parseInt(totalValue.NumberOfCig) + parseInt(totalValue.SmokingPeriod
   const aoMap = useTexture('/katia3/lungsSickTexture.png');
   const metalnessMap  = useTexture('/katia3/lungsSickTexture.png');
   const roughnessMap  = useTexture('/katia3/lungsSickTexture.png');
-
+  const threesixtytexture = useTexture("/katia3/2.png")
 
   // console.log(color * (1.0 / 185))
 
-return (
-  <group {...props} dispose={null} ref={meshRef}>
+return ( <group {...props} dispose={null} ref={meshRef}>
     <mesh 
     renderOrder={1} ref={sickRef} geometry={nodes.Circle.geometry} material={materials['Material.003']} position={[-0.197, -0.022, 0.07]} scale={0.152}>
-  <meshStandardMaterial 
-  map={sickTexture} transparent opacity={opacity} />
+    <meshStandardMaterial map={sickTexture} transparent opacity={opacity} />
   </mesh>
   <mesh renderOrder={0} geometry={nodes.Circle.geometry} material={materials['Material.003']} position={[-0.197, -0.022, 0.07]} scale={0.152}>
   <meshStandardMaterial map={healthyTexture} transparent opacity={0.3} />
@@ -63,6 +63,8 @@ return (
   <group position={[-0.254, 1.702, 0]} scale={0.152}>
     <mesh geometry={nodes.Circle001_1.geometry} material={materials['Material.001']} />
     <mesh geometry={nodes.Circle001_2.geometry} material={materials['Material.002']} />
+
+
   </group>
 </group>
 )

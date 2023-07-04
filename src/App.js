@@ -13,10 +13,8 @@ import { useLocation } from "react-router-dom";
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import MainMouthPage from "./Pages/Mouth/MainMouthPage"
 import MainTonguePage from "./Pages/Tongue/MainTonguePage";
-import TuberculosisSound from "./Assets/Tuberculosis.wav";
-import CancerSound from "./Assets/cancer.wav";
-import LungsCollapseSound from "./Assets/Lung-collapse.wav";
-import AsthmaSound from "./Assets/asthma.wav";
+import backgroundmusicsound from "./Assets/background-music.mp3"
+
 
 const GlobalStyle = createGlobalStyle
 `
@@ -60,13 +58,34 @@ const AppConatiner = styled.div`
   flex-direction: column;
 `
 
-
-const Icon = styled.img`
+const IconDiv = styled.div`
     position: fixed;
     top: 20px;
     right: 30px;
+    cursor: pointer;
     width: 30px;
     height: auto;
+    z-index: 150;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      width: 120%;
+      height: 1px;
+      background-color: rgba(255,255,255,0.8);
+      transform: translate(50%, 50%) rotate(45deg);
+      transition: .5s opacity;
+      opacity: ${p => p.muted ? 1 : 0};
+    }
+
+`
+
+const Icon = styled.img`
+    width: 100%;
+    height: auto;
+    position: relative;
 `
 
 const AnimationsDiv = styled.div`
@@ -76,51 +95,35 @@ const AnimationsDiv = styled.div`
   z-index: 30;
 `
 
-
 function App() {
 
-      // const Tuberculosis = useRef(new Audio(TuberculosisSound));
-      // const Cancer = useRef(new Audio(CancerSound));
-      // const LungCollapse = useRef(new Audio(LungsCollapseSound)); 
-      // const Asthma = useRef(new Audio(AsthmaSound)); 
-  // const Tuberculosis = useRef(null);
-  // const Cancer = useRef(null);
-  // const LungCollapse = useRef(null);
-  // const Asthma = useRef(null);
+  const BackgroundMusic = useRef(null);
+  const [mutedbg, setMutesBg] = useState(false)
 
-  //     const [isLoaded, setIsLoaded] = useState(false);
-
-  //     useEffect(() => {
-  //       if (!isLoaded) {
-  //         // Load the sound
-  //         Tuberculosis.current = new Audio(TuberculosisSound);
-  //         Cancer.current = new Audio(CancerSound);
-  //         LungCollapse.current = new Audio(LungsCollapseSound);
-  //         Asthma.current = new Audio(AsthmaSound);
-
-  //         setIsLoaded(true);
-  //       }
-  //     }, [isLoaded]);
   
-  // useEffect(() => {
-  //   const handleAudioLoad = () => {
-  //     console.log('Audio loaded!');
-  //     // Perform any actions you need when the audio is loaded
-  //   };
+  useEffect(() => {
+    if(mutedbg){
+      BackgroundMusic.current.muted = true
+      BackgroundMusic.current.defaultMuted = true
+    } else if (!mutedbg && BackgroundMusic.current){
+      BackgroundMusic.current.muted = false
+      BackgroundMusic.current.defaultMuted = false
+    }
+    }, [mutedbg])
 
-  //   Tuberculosis.current.addEventListener('loadeddata', () => {console.log("Tuberculosis loaded")});
-  //   Cancer.current.addEventListener('loadeddata', () => {console.log("Tuberculosis loaded")});
-  //   LungCollapse.current.addEventListener('loadeddata', () => {console.log("Tuberculosis loaded")});
-  //   Asthma.current.addEventListener('loadeddata', () => {console.log("Tuberculosis loaded")});
+  const [isLoaded, setIsLoaded] = useState(false)
+  useEffect(() => {
+    if (!isLoaded) {
+      // Load the sound
+      BackgroundMusic.current = new Audio(backgroundmusicsound);
+      setIsLoaded(true)
+      BackgroundMusic.current.loop=true;
+      BackgroundMusic.current.play()
+      console.log(BackgroundMusic.current)
+    }
+  }, [isLoaded]);
 
 
-  //   return () => {
-  //       Tuberculosis.current.removeEventListener('loadeddata', handleAudioLoad);
-  //       Cancer.current.removeEventListener('loadeddata', handleAudioLoad);
-  //       LungCollapse.current.removeEventListener('loadeddata', handleAudioLoad);
-  //       Asthma.current.removeEventListener('loadeddata', handleAudioLoad);
-  //   };
-  // }, []);  
 
       const NumberOfCig = {
         constName: "NumberOfCig",
@@ -222,7 +225,10 @@ function App() {
   return (
     <AppConatiner ref={bodyRef}>
     <GlobalStyle />
+
+    <IconDiv muted={mutedbg} onClick={() => setMutesBg(!mutedbg)} >
     <Icon src={IconSvg} alt="Icon" />
+    </IconDiv>
 
     <AnimationsDiv>
     </AnimationsDiv>

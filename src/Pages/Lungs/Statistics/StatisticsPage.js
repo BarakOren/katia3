@@ -1,8 +1,6 @@
-import styled from "styled-components"
-import ModelsCircle from "./Spheres/Sphere1"
+import styled, { keyframes, css } from "styled-components"
 import LeftSideContainer from "../LeftSide/LeftSideContainer"
 import { useEffect, useState } from "react"
-import { animated, useSpring } from '@react-spring/web'
 import SphereDiv from "./Spheres/SphereDiv"
 import AfterEverything from "../../../afterEverything/AfterEverything"
 
@@ -38,6 +36,25 @@ const ModelContainer = styled.div`
     transition: 3s opacity ease-in-out;
     `
 
+const explotion = keyframes`
+    from { 
+        letter-spacing: default;
+        left: 13vw;
+        width: 100%;
+        opacity: 1;
+        filter: blur(0px);
+        line-height: 190%;
+    }
+    to { 
+        letter-spacing: 60px;
+        left: calc(13vw - 80px);
+        width: 100%;
+        opacity: 0;
+        filter: blur(2px);
+        line-height: 230%;
+    }
+`
+
 const Title = styled.p`
     width: 20vw;
     font-family: 'Libre Franklin';
@@ -53,7 +70,15 @@ const Title = styled.p`
     letter-spacing: 12px;
     opacity: ${p => p.opacity ? 0 : 1};
     transition: .5s opacity;
-    transition-delay: 2s;
+    transition-delay: 3s;
+
+    ${props =>
+    props.animation &&
+    css`
+    animation: ${explotion};
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0, 0.98, 0.6, 0.82);
+    `}
 `
 
 const Span = styled.span`
@@ -158,7 +183,7 @@ const StatisticsPage = (props) => {
 
 
     <ModelContainer opacity={afterEverything}>
-    <Title opacity={animation}>Your<br/>risk of<br/>these<br/><Span>diseases</Span></Title>
+    <Title animation={animation} opacity={animation}>Your<br/>risk of<br/>these<br/><Span>diseases</Span></Title>
 
     <SphereDiv
     Divsizing={Divsizing / 5}

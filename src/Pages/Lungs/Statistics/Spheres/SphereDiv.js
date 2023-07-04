@@ -107,8 +107,8 @@ const SphereDiv = (props) => {
     const springs = useSpring({ 
       top: position.top,
       left: position.left,
-      width: `${Divsizing * 1.5 + addPxToDiv}px`,
-      height: `${Divsizing * 1.5 + addPxToDiv}px`,
+      width: `${Divsizing * 1 + addPxToDiv}px`,
+      height: `${Divsizing * 1 + addPxToDiv}px`,
 
       config: {
         duration: 3000,
