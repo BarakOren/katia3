@@ -104,13 +104,26 @@ const AnimationsDiv = styled.div`
 function App() {
 
   const BackgroundMusic = useRef(null);
-  const [mutedbg, setMutesBg] = useState(false)
+  const [mutedbg, setMutesBg] = useState(true)
 
-  
+  // const toggleSound = () => {
+  //   console.log(BackgroundMusic.current)
+  //   if(mutedbg){
+  //     BackgroundMusic.current.muted = true
+  //     BackgroundMusic.current.defaultMuted = true
+  //   } else if (!mutedbg){
+  //     BackgroundMusic.current.muted = false
+  //     BackgroundMusic.current.defaultMuted = false
+  //   }
+  //   setMutesBg(!mutedbg);
+  // }
+
   useEffect(() => {
     if(mutedbg){
-      BackgroundMusic.current.muted = true
-      BackgroundMusic.current.defaultMuted = true
+      if(BackgroundMusic.current){
+        BackgroundMusic.current.muted = true
+        BackgroundMusic.current.defaultMuted = true
+      }
     } else if (!mutedbg && BackgroundMusic.current){
       BackgroundMusic.current.muted = false
       BackgroundMusic.current.defaultMuted = false
@@ -121,11 +134,13 @@ function App() {
 
   useEffect(() => {
     if (!isLoaded) {
-      // Load the sound
       BackgroundMusic.current = new Audio(backgroundmusicsound);
-      setIsLoaded(true)
+      console.log(BackgroundMusic.current)
       BackgroundMusic.current.loop=true;
+      BackgroundMusic.current.muted=true;
+      BackgroundMusic.current.defaultMuted = true
       BackgroundMusic.current.play()
+      setIsLoaded(true)
     }
   }, [isLoaded]);
 
