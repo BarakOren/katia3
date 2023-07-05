@@ -127,6 +127,7 @@ function App() {
     } else if (!mutedbg && BackgroundMusic.current){
       BackgroundMusic.current.muted = false
       BackgroundMusic.current.defaultMuted = false
+      BackgroundMusic.current.play()
     }
     }, [mutedbg])
 
@@ -139,7 +140,7 @@ function App() {
       BackgroundMusic.current.loop=true;
       BackgroundMusic.current.muted=true;
       BackgroundMusic.current.defaultMuted = true
-      BackgroundMusic.current.play()
+      // BackgroundMusic.current.play()
       setIsLoaded(true)
     }
   }, [isLoaded]);
