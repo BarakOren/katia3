@@ -1,6 +1,5 @@
 import styled, { keyframes } from 'styled-components'
 import React from "react";
-import background from "../../Assets/introBackground.mp4"
 
 const Container = styled.div`
     width: 100%;
@@ -10,12 +9,18 @@ const Container = styled.div`
 
 const Text = styled.p`
     width: 70%;
-    font-size: 2.5vw;
+    font-size: 3.5vw;
     text-align: center;
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: 'Amiri', sans-serif;
     font-weight: 400;
     font-style: italic;
     z-index: 1;
+    line-height: 96px;
+
+    @media only screen and (max-width: 1300px) {
+        font-size: 3vw;
+        line-height: 73px;
+    }
 `
 
 const CircleAnimation = keyframes`
@@ -46,9 +51,7 @@ const FirstText = () => {
     return <Container>
     <Circle />
     <Text>
-    Smoking is a social problem of society, both for smokers and non-smokers. For the first 
-    <br/>
-    - the problem is to quit smoking, for the second - to avoid the influence of the smoking society.
+    Smoking is a social problem of society, both for smokers and non - smokers. For the first - the problem is to quit smoking, for the second - to avoid the influence of the smking society.
     </Text>
     </Container>
 }

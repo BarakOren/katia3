@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { animated, easings, useSpring } from '@react-spring/web'
-import ModelsCircle from "./Sphere1"
 // import sphere from "../../../../Assets/PinkSphere.gif"
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
@@ -42,11 +41,16 @@ const DetailsDiv = styled.div`
 `
 
 const Name = styled.p`
-  font-size: 150%;
+  font-size: 220%;
   color: white;
   font-family: Libre Franklin;
   font-weight: 700;
   margin: 0;
+
+  
+  @media only screen and (max-width: 1300px) {
+    font-size: 150%;
+  }
 `
 
 const Precentage = styled.div`
@@ -86,17 +90,16 @@ const Sphere = styled.img`
 
 const SphereDiv = (props) => {
 
-    const [test, setTest] = useState(false)
-
     const {ChangeAnimation, animation, SphereAnimation, Divsizing, size, totalValue, position, name} = props;
 
-    const addPxToDiv = 200
+    const width = window.innerWidth
+    const addPxToDiv = width < 1300 ? 200 : 310
     
     const location = useLocation().pathname
 
     const SphereType = () => { 
     if(location === "/lungs") return 'https://i.ibb.co/xYtqhwQ/1.gif'
-    else if (location === "/mounth") return "https://i.ibb.co/GHTQ94D/2.gif"
+    else if (location === "/teeth") return "https://i.ibb.co/GHTQ94D/2.gif"
     else if (location === "/tongue") return "https://i.ibb.co/TkGdRH3/3.gif"
     }
 
@@ -138,21 +141,19 @@ const SphereDiv = (props) => {
     
     <Precentage>
     <animated.p
-    style={{fontSize: '70px'}}
+    style={{fontSize: width < 1300 ? '70px' : '120px'}}
     // style={{fontSize: `${26 + Divsizing}px`}}
     >{Math.floor(Divsizing) > 99 ? 100 : Math.floor(Divsizing)}</animated.p>
     
     <animated.p 
     // style={{fontSize: `${Divsizing < 50 ? Divsizing : Divsizing - 30}px`}}
-    style={{fontSize: "16px", fontWeight: 700}}
+    style={{fontSize: width < 1300 ? '16px' : '30px', fontWeight: 700}}
     className="symbol">%</animated.p>
     
     </Precentage>
     <Name>risk</Name>
     </DetailsDiv>
     
-   
-      
     <Sphere src={SphereType()} alt="Sphere" />
     
     </Relative>

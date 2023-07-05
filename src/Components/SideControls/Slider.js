@@ -13,16 +13,14 @@ const Input = styled.input`
   appearance: none; 
   /* creating a custom design */
   width: 100%;
-  height: 2px;
+  height: 3px;
   cursor: pointer;
   outline: none;
   /*  slider progress trick  */
   border-radius: 16px;
 
-
-
 &::-webkit-slider-runnable-track {
-  height: 2px;
+  height: 100%;
   border-radius: 1px;
   background-image: linear-gradient(#D37419, #D37419);
   background-size: ${p => `${p.progress}% 100%`};
@@ -33,8 +31,8 @@ const Input = styled.input`
 &::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none; 
-  height: 14px;
-  width: 14px;
+  height: 18px;
+  width: 18px;
   background-color: #fff;
   border-radius: 50%;
   margin-top: -6px;
@@ -42,6 +40,15 @@ const Input = styled.input`
   transition: .2s ease-in-out;
   outline: none;
 }
+
+@media only screen and (max-width: 1300px) {
+    height: 2px;
+  }
+
+  &::-webkit-slider-thumb {
+    height: 14px;
+    width: 14px;
+  }
 
 `
 

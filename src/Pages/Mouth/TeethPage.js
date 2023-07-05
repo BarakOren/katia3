@@ -1,9 +1,5 @@
 import styled from "styled-components"
-// import background from '../../Assets/lungsBG.gif';
-import SideControls from "../../Components/SideControls/SideControls";
 import ModelViewer from "./Model/ModelViewer"
-import { useState } from "react";
-import StatisticsPage from "./Statistics/StatisticsPage";
 import background from '../../Assets/mouthBG.mp4';
 
 
@@ -50,7 +46,6 @@ const Circle = styled.div`
     border: ${p => `solid 1px rgba(255, 255, 255, ${p.opacity})`};
 `
 
-
 const Glow = styled.div`
     position: absolute;
     top: 60%;
@@ -59,7 +54,7 @@ const Glow = styled.div`
     width: ${p => `${p.size - 15}vw`};
     height: ${p => `${p.size - 15}vw`}; 
     border-radius: 50%;
-    filter: blur(70px);
+    filter: ${p => p.width ? 'blur(70px)' : 'blur(130px)'};
     background-color: rgba(255, 255, 255, 0.7);
 `
 
@@ -68,35 +63,37 @@ const Title = styled.p`
     font-family: 'Libre Franklin';
     font-style: normal;
     font-weight: 400;
-    font-size: 36px;
-    line-height: 190%;
+    font-size: 70px;
+    line-height: 170%;
     position: absolute;
     margin: 0;
-    top: 60%;
+    top: 58%;
     transform: translateY(-50%);
-    left: 15vw;
+    left: 10vw;
     letter-spacing: 12px;
+
+    @media only screen and (max-width: 1300px) {
+        font-size: 38px;
+        line-height: 190%;
+        left: 13vw;
+    }
 `
 
 const Span = styled.span`
-    font-size: 40px;
+    font-size: 76px;
     font-family: 'Amiri', serif;
     font-weight: 400;
     font-style: italic;
-`
 
-const GitBackground = styled.img`
-    width: 100%;
-    height: auto;
+    @media only screen and (max-width: 1300px) {
+        font-size: 38px;
+    }
 `
-
-// <BackgroundVideo autoPlay loop muted>
-//         <source src={background} type='video/mp4' />
-//     </BackgroundVideo>
 
 const TeethPage = (props) => {
 
     const {totalValue, setTotalValue, Age, SmokingPeriod, NumberOfCig} = props
+    const width = window.innerWidth
 
     return <Container>
     
@@ -106,12 +103,12 @@ const TeethPage = (props) => {
         <source src={background} type='video/mp4' />
     </BackgroundVideo>
     </BackgroundContainer>
-
-    <Circle size={24} opacity={0.7}/>
-    <Circle size={27} opacity={0.5}/>
-    <Circle size={30} opacity={0.3}/>
-    <Circle size={33} opacity={0.2}/>
-    <Glow size={30} />
+    
+    <Circle size={width < 1300 ? 24 : 32} opacity={0.7}/>
+    <Circle size={width < 1300 ? 28 : 37} opacity={0.5}/>
+    <Circle size={width < 1300 ? 32 : 43} opacity={0.3}/>
+    <Circle size={width < 1300 ? 36 : 48} opacity={0.2}/>
+    <Glow size={width < 1300 ? 30 : 40} width={width < 1300}/>
 
 
     <Title>These<br />Are<br />Your<br /><Span>teeth</Span></Title>

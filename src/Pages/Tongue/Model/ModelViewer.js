@@ -32,12 +32,14 @@ const {totalValue} = props;
       })
   }, [totalValue])
 
+  const texture = useTexture('/katia3/togue-texture.png');
+
   return (
-      <group {...props} dispose={null} ref={meshRef}>
+      <group {...props} dispose={null} ref={meshRef} position={[-0.3, -1, 0]}>
       <mesh 
       material-color={`hsl(${currentColor.h}, ${currentColor.s}%, ${currentColor.l}%)`}
       geometry={nodes.Cube.geometry} material={materials['Material.002']} rotation={[0.128, 0, 0]}>
-      
+      <meshStandardMaterial map={texture}  />
       </mesh>
    
     </group>
@@ -53,9 +55,9 @@ const {totalValue} = props;
 // totalValue={totalValue}
 const ModelViewer = (props, { modelPath, scale = 1, position = [0, 0, 0] }) => {
   const {totalValue} = props;
-  const size = 1.5
+  const size = 0.7
   return (
-    <Canvas style={{width: '50vw', position: "absolute", top: '4%'}}>
+    <Canvas style={{width: '100vw', position: "absolute", top: '4%'}}>
     <ambientLight intensity={1.5} />
     <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
     <pointLight position={[-10, -10, -10]} />

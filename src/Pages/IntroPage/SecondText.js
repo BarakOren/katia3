@@ -9,26 +9,43 @@ const Container = styled.div`
 `
 
 const Text = styled.p`
-    font-size: 3.5vw;
+    font-size: 3.7vw;
     font-weight: 400;
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: 'Amiri', sans-serif;
     font-style: italic;
+
+    @media only screen and (max-width: 1300px) {
+        font-size: 3.5vw;
+    }
 `
 
 const StartButton = styled(Link)`
-    width: 112.29px;
-    height: 46px;
-    background: white;
-    border-radius: 14px;
+    background-color: white;
+    border-radius: 26px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 2vw;
+    padding: 12px 40px;
     color: black;
     font-family: 'Libre Franklin', sans-serif;
     font-weight: 300;
+    transition: .5s background-color;
 
+    &:hover{
+        background-color: #67CEC4;
+    }
+
+    &:focus {
+        box-shadow: inset 0px -2px 12px black;
+    }
+
+    @media only screen and (max-width: 1300px) {
+        font-size: 16px;
+        padding: 10px 32px;
+        border-radius: 12px;
+    }
 `
 
 const SecondText = (props) => {

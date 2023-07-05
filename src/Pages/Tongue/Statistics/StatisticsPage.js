@@ -1,5 +1,4 @@
 import styled, {css, keyframes} from "styled-components"
-import ModelsCircle from "./Spheres/Sphere1"
 import LeftSideContainer from "../LeftSide/LeftSideContainer"
 import { useEffect, useState } from "react"
 import { animated, useSpring } from '@react-spring/web'
@@ -11,7 +10,6 @@ const Container = styled.div`
     height: 100vh;
     position: relative;
 `
-
 
 const Circle = styled.div`
   position: absolute;
@@ -37,8 +35,6 @@ const ModelContainer = styled.div`
     transition: 3s opacity ease-in-out;
     `
 
-
-
 const explotion = keyframes`
     from { 
         letter-spacing: default;
@@ -63,14 +59,16 @@ const Title = styled.p`
     font-family: 'Libre Franklin';
     font-style: normal;
     font-weight: 400;
-    font-size: 36px;
-    line-height: 190%;
+    font-size: 70px;
+    line-height: 170%;
     position: absolute;
     margin: 0;
     top: 50%;
     transform: translateY(-50%);
-    left: 13vw;
+    left: 10vw;
     letter-spacing: 12px;
+
+
     opacity: ${p => p.opacity ? 0 : 1};
     transition: .5s opacity;
     transition-delay: 3s;
@@ -82,14 +80,22 @@ const Title = styled.p`
     animation-duration: 2s;
     animation-timing-function: cubic-bezier(0, 0.98, 0.6, 0.82);
     `}
+
+    @media only screen and (max-width: 1300px) {
+        font-size: 38px;
+        line-height: 190%;
+        left: 13vw;
+    }
 `
 
-
 const Span = styled.span`
-    font-size: 40px;
+    font-size: 76px;
     font-family: 'Amiri', serif;
     font-weight: 400;
     font-style: italic;
+    @media only screen and (max-width: 1300px) {
+        font-size: 38px;
+    }
 `
 
 
@@ -106,24 +112,31 @@ const Glow = styled.div`
     background-color: rgba(255, 255, 255, 0.6);
     transition: 3s all ease-in-out;
 `
+
 const Thoughts = styled.div`
     position: absolute;
-    bottom: 50px;
-    right: 50px;
+    bottom: 70px;
+    right: 70px;
     font-size: 3vw;
     font-weight: 400;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     border-bottom: 1px solid white;
     cursor: pointer;
     opacity: ${p => p.opacity ? 1 : 0};
     transition: 3s all;
-`
 
+    @media only screen and (max-width: 1300px) {
+        bottom: 50px;
+        padding-bottom: 5px;
+        right: 50px;
+  }
+`
 
 
 const StatisticsPage = (props) => {
 
     const {setAnimation, leftSideToggle, setLeftSideToggle, bodyRef, afterEverything, setAfterEverything, StatisticsPageRef, ChangeAnimation, animationText, setAnimationText, animation , totalValue, setTotalValue, Age, SmokingPeriod, NumberOfCig } = props
+    const width = window.innerWidth
 
     const [SphereAnimation, setSphereAnimation] = useState(false)
 
@@ -132,8 +145,9 @@ const StatisticsPage = (props) => {
     let IntNumberOfCig = parseInt(totalValue.NumberOfCig)
         
     const Divsizing = IntAge / 2 + IntSmokingPeriod / 2 + IntNumberOfCig
+    const SphereOneInitialPosition = {top: '18%', left: '40%'}
 
-    const [SphereOnePosition, setSphereOnePosition] = useState({top: '25%', left: '40%'}) //Tuberculosis
+    const [SphereOnePosition, setSphereOnePosition] = useState(SphereOneInitialPosition) //Tuberculosis
     const [SphereTwoPosition, setSphereTwoPosition] = useState({top: '30%', left: '60%'}) //Cancer
     const [SphereThreePosition, setSphereThreePosition] = useState({top: '65%', left: '40%'}) //Asthma
     const [SphereFourPosition, setSphereFourPosition] = useState({top: '68%', left: '60%'}) //Lung collapse
@@ -147,7 +161,7 @@ const StatisticsPage = (props) => {
 
     useEffect(() => {
         if(animation === null) {
-            setSphereOnePosition({top: '25%', left: '40%'})
+            setSphereOnePosition(SphereOneInitialPosition)
             setSphereTwoPosition({top: '30%', left: '60%'})
             setSphereThreePosition({top: '65%', left: '40%'})
             setSphereFourPosition({top: '68%', left: '60%'})
@@ -178,6 +192,39 @@ const StatisticsPage = (props) => {
         }
         
     }, [animation])
+
+
+    const CircleOneSizing = () => {
+        return width < 1300 ? '24vw' : '32vw'
+    }
+
+    const CircleTwoSizing = () => {
+        return width < 1300 ? '28vw' : '37vw'
+    }
+
+    const CircleThreeSizing = () => {
+        return width < 1300 ? '32vw' : '43vw'
+    }
+
+    const CircleFourSizing = () => {
+        return width < 1300 ? '36vw' : '48vw'
+    }
+// _________________
+
+    const CircleOneAnimationSizing = () => {
+        return width < 1300 ? '20vw' : '28vw'
+    }
+    
+    const CircleTwoAnimationSizing = () => {
+        return width < 1300 ? '24vw' : '34vw'
+    }
+    const CircleThreeAnimationSizing = () => {
+        return width < 1300 ? '28vw' : '40vw'
+    }
+    const CircleFourAnimationSizing = () => {
+        return width < 1300 ? '32vw' : '46vw'
+    }
+
 
    return <Container ref={StatisticsPageRef}>
 
@@ -223,10 +270,10 @@ const StatisticsPage = (props) => {
     ChangeAnimation={ChangeAnimation}
     />
 
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={ animation === null ? `27vw` : '20vw'} opacity={0.6}/>
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? `31vw` : '24vw'} opacity={0.4}/>
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? `35vw` : '28vw'} opacity={0.3}/>
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? `39vw` : '32vw'} opacity={0.2}/>
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? CircleOneSizing() : CircleOneAnimationSizing()} opacity={0.7}/>
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? CircleTwoSizing() : CircleTwoAnimationSizing()} opacity={0.5}/>
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? CircleThreeSizing() : CircleThreeAnimationSizing()} opacity={0.3}/>
+    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? CircleFourSizing() : CircleFourAnimationSizing()} opacity={0.2}/>
     <Glow opacity={animation} position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={ animation === null ? `24vw` : '21vw'} />
     </ModelContainer>
 

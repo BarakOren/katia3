@@ -17,20 +17,26 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+
 `
 
 const Icon = styled.img`
     position: absolute;
-    top: 70px;
-    left: 30px;
-    width: 20px;
-    height: 20px;
-    padding: 6px;
+    top: 100px;
+    left: 71px;
+    width: 30px;
+    height: 25px;
     /* border: 1px solid white; */
     /* border-radius: 50%; */
     cursor: pointer;
     box-shadow: ${p => p.isPlaying && "0 0 15px rgb(255,255,255,0.8)"};
     transition: .5s box-shadow;
+
+    @media only screen and (max-width: 1300px) {
+        top: 70px;
+        left: 30px;
+    }
 `
 
 const ProgressBar = styled.div`

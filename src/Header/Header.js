@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom"
 
 const Container = styled.div`
     width: 95%;
-    height: 70px;
+    height: 110px;
     position: fixed;
     top: 0;
     left: 50%;
@@ -18,6 +18,10 @@ const Container = styled.div`
     z-index: 10;
     transition: 3s opacity ease-in-out;
     z-index: 100;
+
+    @media only screen and (max-width: 1300px) {
+        height: 70px;
+    }
 `
 
 const About = styled(Link)`
@@ -25,8 +29,7 @@ const About = styled(Link)`
     justify-content: flex-start;
     align-items: center;
     text-decoration: none;
-    font-size: 20px;
-    color: black;
+    font-size: 24px;
     font-family: 'Libre Franklin';
     font-weight: 900;
     color: white;
@@ -34,10 +37,14 @@ const About = styled(Link)`
     margin: 0;
     cursor: pointer;
     width: 33%;
+
+    @media only screen and (max-width: 1300px) {
+        font-size: 16px;
+    }
 `
 
 const IconsContainer = styled.div`
-    width: 200px;
+    width: 350px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -46,32 +53,50 @@ const IconsContainer = styled.div`
     opacity: ${p => p.display ? 0 : 1};
     transition: 3s opacity ease-in-out;
 
+    @media only screen and (max-width: 1300px) {
+        width: 200px;
+    }
+
 `
 
 const Icon = styled.img`
-    width: 30px;
+    width: 50px;
     height: auto;
     cursor: pointer;
     opacity: ${p => p.opacity ? 1 : 0.5};
     transition: .5s opacity;
+
+    @media only screen and (max-width: 1300px) {
+        width: 26px;
+    }
 `
 
 const LinkContainer = styled(Link)`
-    width: 30px;
+    /* width: 50px; */
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media only screen and (max-width: 1300px) {
+        /* width: 30px; */
+    }
 `
 
 const UnderLine = styled.div`
-    width: 30px;
-    height: 1px;
+    width: 50px;
+    height: 2px;
+    bottom: 14px;
     position: absolute;
-    bottom: 13px;
     left: ${p => `${p.location}px`};
     background-color: white;
     transition: .5s left;
+
+    @media only screen and (max-width: 1300px) {
+        width: 30px;
+        bottom: 13px;
+        height: 1px;
+    }
 `
 
 const EmptyDiv = styled.div`
@@ -84,10 +109,16 @@ const Header = (props) => {
     const location = useLocation().pathname
 
     var setPosition = () => {
-        if(location === "/lungs") return 0
-        else if(location === "/teeth") return 85
-        else if (location === "/tongue") return 170
+        const width = window.innerWidth
+        if(location === "/lungs" && width < 1300) return -2
+        else if(location === "/teeth" && width < 1300) return 85
+        else if (location === "/tongue" && width < 1300) return 172
+
+        else if(location === "/lungs" && width >= 1300) return 0
+        else if(location === "/teeth" && width >= 1300) return 150
+        else if (location === "/tongue" && width >= 1300) return 300
     }
+
     return <Container display={location === "/"}>
         <About to="/">About</About>
         

@@ -1,24 +1,30 @@
 import { forwardRef } from "react"
 import styled from "styled-components"
-import { Titles } from "../../../Texts"
 
 const Container = styled.div`
-    margin-top: 50px;
     width: 100%;
     height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
+    @media only screen and (max-width: 1300px) {
+      margin-top: 50px;
+    }
 `
 
 const Title = styled.p`
     width: 100%;
     font-family: 'Libre Franklin';
     font-weight: 400;
-    font-size: 60px;
+    font-size: 100px;
     margin: 0;
     text-align: left;
     white-space: nowrap;
+
+    @media only screen and (max-width: 1300px) {
+      font-size: 60px;
+    }
 `
 
 const Text = styled.p`
@@ -27,7 +33,7 @@ const Text = styled.p`
     font-family: 'Amiri', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 30px;
     line-height: 150%;
     overflow-y: scroll;
     margin: 0;
@@ -36,6 +42,12 @@ const Text = styled.p`
     text-align: left;
     padding-left: 16px;
 
+    @media only screen and (max-width: 1300px) {
+      margin-top: 20px;
+      padding-left: 16px;
+      font-size: 20px;
+      height: 100%;
+    }
     
 &::-webkit-scrollbar{
   width: 3px;
@@ -48,8 +60,9 @@ const Text = styled.p`
 
 `
 
+
 const TextArea = forwardRef((props, ref) => {
-    const {animation, animationText, handleScroll} = props
+    const {animationText, handleScroll} = props
     return <Container>
     <Title>{animationText.title}</Title>
     <Text ref={ref}

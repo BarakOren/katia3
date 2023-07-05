@@ -8,7 +8,6 @@ import YellowTeethSound from "../../../Assets/Yellow-teeth.wav"
 import GumDiseasesSound from "../../../Assets/Gum-diseases.wav"
 import TeethCancerSound from "../../../Assets/cancer-teeth.wav"
 
-
 const Container = styled.div`
     width: 30vw;
     height: 100vh;
@@ -21,7 +20,6 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
 `
 
 const Relative = styled.div`
@@ -49,6 +47,7 @@ const ButtonAndTextContainer = styled.div`
     flex-direction: column;
     justify-content: center;
 `
+
 
 
 const LeftSideContainer = (props) => {

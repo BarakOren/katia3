@@ -2,6 +2,8 @@ import styled from "styled-components"
 import WelcomeTo from "./WelcomeTo"
 import FirstText from "./FirstText"
 import SecondText from "./SecondText"
+import gif from "../../Assets/intro-background.gif"
+
 
 const Backgroud = styled.img`
     position: fixed;
@@ -20,7 +22,11 @@ const LineContainer = styled.div`
     right: -30vw;
     transform: translateY(-50%);
     position: absolute;
-    overflow: hidden;
+    /* overflow: hidden; */
+
+    @media only screen and (min-width: 1300px) {
+        
+    }
 `
 
 const Line = styled.div`
@@ -42,9 +48,16 @@ const Sun = styled.div`
     top: 50%;
     right: -15vw;
     transform: translateY(-50%);
-    background: radial-gradient(circle, rgba(205,109,29,0.8) 0%, rgba(205,109,29,0) 60%);
+    background: radial-gradient(circle, rgba(205,109,29,1) 0%, rgba(205,109,29,0) 60%);
+`
 
-
+const Gif = styled.img`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    transform: translate(-53%, -50%);
 `
 
 
@@ -68,15 +81,12 @@ const IntroPage = () => {
             size: 80,
             opacity: 0.20
         },
-        {
-            size: 45,
-            opacity: 0.75
-        },
 
     ]
 
     return <>
         <LineContainer>
+        <Gif src={gif} alt="gif" loop />
         <div style={{position: "relative", width: "100%", height: "100%", overflow: "hidden"}}>
         {lines.map(line => {return <Line size={line.size} opacity={line.opacity} />})}
         </div>

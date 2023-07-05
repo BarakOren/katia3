@@ -113,24 +113,33 @@ const TextContainer = styled.div`
 `
 
 const Text = styled.h4`
-    font-size: 60px;
+    font-size: 96px;
     /* opacity: ${p => p.step === 1 ? 1 : 0}; */
     transition: 3s opacity;
     margin: 0;
     font-weight: 800;
     text-align: inherit;
+
+    @media only screen and (max-width: 1300px) {
+      font-size: 60px;
+    }
 `
 
 const ItalicOne = styled.p`
   transition: 3s opacity;
   /* opacity: ${p => p.step === 1 ? 1 : 0}; */
-  font-size: 36px;
+  font-size: 70px;
   font-style: italic;
   font-family: Amiri;
   text-align: inherit;
   min-width: 100%;
-  line-height: 50px;
+  line-height: 76.65px;
   margin-top: 20px;
+
+  @media only screen and (max-width: 1300px) {
+    margin-top: 0;
+    font-size: 30px;
+  }
 `
 
 
@@ -146,39 +155,57 @@ const TextTwo = styled.h4`
 const ItalicTwo = styled.p`
   transition: 3s opacity;
   /* opacity: ${p => p.step === 2 ? 1 : 0}; */
-  font-size: 36px;
+  font-size: 70px;
   font-style: italic;
   font-family: Amiri;
   text-align: inherit;
   min-width: 100%;
-  line-height: 50px;
+  line-height: 76.65px;
   margin-top: 20px;
+
+  @media only screen and (max-width: 1300px) {
+    font-size: 36px;
+    line-height: 50px;
+    }
 `
 
 const NextButton = styled.button`
     z-index: 100;
     color: white;
-    border: none;
     background: none;
+    font-family: 'Amiri';
     position: absolute;
-    top: 35%;
-    right: ${p => p.position};
-    height: auto;
-    padding: 8px 10px;
-    border-radius: 6px;
+    bottom: 10%;
+    left: 50%;
+
+    border-radius: 50%;
     border: 1px solid white;
     opacity: ${p => p.opacity ? 1 : 0};
     transition: 3s opacity ease-in-out;
     cursor: pointer;
-    transform: translateX(50%);
+    transform: translateX(-50%);
+    font-style: italic;
+
+    width: 90px;
+    height: 90px;
+    font-size: 24px;
 
     &:active{ 
-      transform: scale(1.05) translateX(50%);
+      transform: scale(1.05) translateX(-50%);
     }
 
     &:disabled {
       opacity: 0.3;
     }
+
+
+    @media only screen and (max-width: 1300px) {
+      width: 50px;
+    height: 50px;
+    font-size: 16px;
+    }
+
+
 `
 
 const AfterEverything = (props) => {
@@ -255,8 +282,7 @@ const AfterEverything = (props) => {
     </TextContainer>
   </TextsContainer>
 
-    <NextButton onClick={() => stepForward()} position={'45%'} opacity={afterEverything}>Next</NextButton>
-    <NextButton onClick={() => stepBackwards()} position={'55%'} disabled={step === 1} opacity={afterEverything}>Back</NextButton>
+    <NextButton onClick={() => stepForward()}  opacity={afterEverything}>Scroll</NextButton>
 
     </Container>
 }

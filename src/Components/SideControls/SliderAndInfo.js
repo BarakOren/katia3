@@ -4,12 +4,16 @@ import { useState } from "react"
 
 const Container = styled.div`
     width: 95%;
-    height: 25%;
+    height: 22%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     opacity: ${p => p.opacity ? '1' : '0'};
     transition: 1s opacity;
+
+    @media only screen and (max-width: 1300px) {
+        height: 25%;
+    }
 `
 
 const FirstContainer = styled.div`
@@ -23,9 +27,13 @@ const FirstContainer = styled.div`
 const Text = styled.p`
     font-family: 'Libre Franklin';
     font-weight: 400;
-    font-size: 16px;
+    font-size: 26px;
     width: 40%;
     margin: 0;
+
+    @media only screen and (max-width: 1300px) {
+        font-size: 16px;
+    }
 `
 
 const Number = styled.p`
@@ -33,8 +41,14 @@ const Number = styled.p`
     font-weight: 400;
     font-family: 'Work Sans';
     font-weight: 300;
-    font-size: 400%;
-    margin: 0 0 10px 0;
+    font-size: 80px;
+    text-align: right;
+    margin-top: -10px;
+
+    @media only screen and (max-width: 1300px) {
+        font-size: 400%;
+    }
+    
 `
 
 const SliderAndInfo = (props) => {

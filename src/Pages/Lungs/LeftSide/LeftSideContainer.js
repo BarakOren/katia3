@@ -53,9 +53,6 @@ const LeftSideContainer = (props) => {
 
     const {bodyRef, setAnimation, leftSideToggle, setLeftSideToggle, setAfterEverything, animationText, animation, setPlay} = props
     
-    const [sound, setSound] = useState()
-    const [loading, setLoading] = useState(false)
-
     useEffect(() => {
         if(animation !== null){
             setLeftSideToggle(true)
@@ -158,7 +155,7 @@ const LeftSideContainer = (props) => {
         <Middle>
         <ButtonAndTextContainer>
         <TextArea animation={animation} animationText={animationText} />
-        <Listen loading={loading} playing={playing} pause={pause} progress={progress} setProgress={setProgress} animation={animation} bodyRef={bodyRef} setAnimation={setAnimation} setToggle={setLeftSideToggle} setAfterEverything={setAfterEverything} play={play}/>
+        <Listen  playing={playing} pause={pause} progress={progress} setProgress={setProgress} animation={animation} bodyRef={bodyRef} setAnimation={setAnimation} setToggle={setLeftSideToggle} setAfterEverything={setAfterEverything} play={play}/>
         </ButtonAndTextContainer>
         </Middle>
     </Container>

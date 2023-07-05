@@ -29,7 +29,7 @@ const {totalValue} = props;
 
   useFrame(() => {
     if (meshRef.current) {
-      // meshRef.current.rotation.y += 0.0095;
+      meshRef.current.rotation.y += 0.0095;
     }
   });
 
@@ -41,14 +41,14 @@ const {totalValue} = props;
   const sickRef = useRef();
   const healthyRef = useRef();
 
-  const sickTexture = useTexture('/katia3/teethSickTexture.png');
+  const sickTexture = useTexture('/katia3/teethSickTexture2.png');
   
   useEffect(() => {
     setOpacity(color * (0.8 / 185))
   }, [totalValue])
 
   return (
-    <group ref={meshRef} {...props} dispose={null}>
+    <group ref={meshRef} {...props} dispose={null} position={[0.5, 0, 1]}>
       <mesh 
       geometry={nodes.Torus002.geometry} material={materials.gums} position={[-0.825, 0.481, -1.375]} rotation={[Math.PI, -0.983, Math.PI]}>
       </mesh>
@@ -82,7 +82,7 @@ const {totalValue} = props;
 // totalValue={totalValue}
 const ModelViewer = (props) => {
   const {totalValue} = props;
-  const size = 1
+  const size = 1.5
   return (
     <Canvas style={{width: '50vw', position: "absolute", top: '4%'}}>
     <ambientLight intensity={0.2} />

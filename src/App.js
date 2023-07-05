@@ -60,10 +60,10 @@ const AppConatiner = styled.div`
 
 const IconDiv = styled.div`
     position: fixed;
-    top: 20px;
+    top: 28px;
     right: 30px;
     cursor: pointer;
-    width: 30px;
+    width: 50px;
     height: auto;
     z-index: 150;
 
@@ -78,6 +78,12 @@ const IconDiv = styled.div`
       transform: translate(50%, 50%) rotate(45deg);
       transition: .5s opacity;
       opacity: ${p => p.muted ? 1 : 0};
+    }
+
+    @media only screen and (max-width: 1300px) {
+          top: 20px;
+        right: 30px;
+        width: 30px;
     }
 
 `
@@ -112,6 +118,7 @@ function App() {
     }, [mutedbg])
 
   const [isLoaded, setIsLoaded] = useState(false)
+
   useEffect(() => {
     if (!isLoaded) {
       // Load the sound
@@ -119,7 +126,6 @@ function App() {
       setIsLoaded(true)
       BackgroundMusic.current.loop=true;
       BackgroundMusic.current.play()
-      console.log(BackgroundMusic.current)
     }
   }, [isLoaded]);
 
@@ -214,8 +220,6 @@ function App() {
     const bodyRef = useRef(null)
     const StatisticsPageRef = useRef(null)
 
-  
-
     const playAfterEverying = () => {
       setAfterEverything(!afterEverything)
         if(!afterEverything){disableBodyScroll(bodyRef); return}
@@ -240,9 +244,7 @@ function App() {
     />
     <Routes>
     <Route path="/" element={<IntroPage />} />
-    <Route path="/lungs" element={<MainLungsPage 
-      // Tuberculosis={Tuberculosis} Cancer={Cancer} LungCollapse={LungCollapse} Asthma={Asthma} 
-      leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} StatisticsPageRef={StatisticsPageRef} ChangeAnimation={ChangeAnimation} animationText={animationText} setAnimationText={setAnimationText} animation={animation} setAnimation={setAnimation} totalValue={totalValue} setTotalValue={setTotalValue} Age={Age} SmokingPeriod={SmokingPeriod} NumberOfCig={NumberOfCig} />} />
+    <Route path="/lungs" element={<MainLungsPage leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} StatisticsPageRef={StatisticsPageRef} ChangeAnimation={ChangeAnimation} animationText={animationText} setAnimationText={setAnimationText} animation={animation} setAnimation={setAnimation} totalValue={totalValue} setTotalValue={setTotalValue} Age={Age} SmokingPeriod={SmokingPeriod} NumberOfCig={NumberOfCig} />} />
     <Route path="/teeth" element={<MainMouthPage leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} StatisticsPageRef={StatisticsPageRef} ChangeAnimation={ChangeAnimation} animationText={animationText} setAnimationText={setAnimationText} animation={animation} setAnimation={setAnimation} totalValue={totalValue} setTotalValue={setTotalValue} Age={Age} SmokingPeriod={SmokingPeriod} NumberOfCig={NumberOfCig} />} />
     <Route path="/tongue" element={<MainTonguePage leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} bodyRef={bodyRef} afterEverything={afterEverything} setAfterEverything={setAfterEverything} StatisticsPageRef={StatisticsPageRef} ChangeAnimation={ChangeAnimation} animationText={animationText} setAnimationText={setAnimationText} animation={animation} setAnimation={setAnimation} totalValue={totalValue} setTotalValue={setTotalValue} Age={Age} SmokingPeriod={SmokingPeriod} NumberOfCig={NumberOfCig} />} />
 

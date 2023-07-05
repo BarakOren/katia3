@@ -9,19 +9,28 @@ const Container = styled.div`
 
 const Title = styled.h1`
     color: white; 
+    width: 80%;
     font-size: 4vw;
     font-style: italic;
     font-weight: 700;
-    letter-spacing: 0.478em;
+    letter-spacing: 500%;
     font-style: italic;
     font-family: Amiri;
-`
+    text-align: center;
+    letter-spacing: 60px;
 
-const SpanOne = styled.span`
-    font-weight: 300;
-    font-style: normal;
-    font-size: 6vw;
-    letter-spacing: 0.888em;
+    @media only screen and (max-width: 1300px) {
+        letter-spacing: 30px;
+    }
+
+    @media only screen and (max-width: 1200px) {
+        letter-spacing: 20px;
+        color: beige;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        letter-spacing: 12px;
+    }
 `
 
 const WelcomeTo = () => {
