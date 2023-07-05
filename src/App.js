@@ -105,6 +105,7 @@ function App() {
 
   const BackgroundMusic = useRef(null);
   const [mutedbg, setMutesBg] = useState(true)
+  const [firstPlay, setFirstPlay] = useState(false);
 
   // const toggleSound = () => {
   //   console.log(BackgroundMusic.current)
@@ -114,6 +115,10 @@ function App() {
   //   } else if (!mutedbg){
   //     BackgroundMusic.current.muted = false
   //     BackgroundMusic.current.defaultMuted = false
+  //     if(!firstPlay){
+  //       BackgroundMusic.current.play()
+  //       setFirstPlay(true);
+  //     }
   //   }
   //   setMutesBg(!mutedbg);
   // }
@@ -127,7 +132,11 @@ function App() {
     } else if (!mutedbg && BackgroundMusic.current){
       BackgroundMusic.current.muted = false
       BackgroundMusic.current.defaultMuted = false
-      BackgroundMusic.current.play()
+      if(!firstPlay){
+        console.log("should not run on load")
+        BackgroundMusic.current.play()
+        setFirstPlay(true);
+      }
     }
     }, [mutedbg])
 
