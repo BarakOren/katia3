@@ -60,14 +60,14 @@ const IconsContainer = styled.div`
 `
 
 const Icon = styled.img`
-    width: 50px;
+    width: ${p => p.size ? '40px' : '50px'};
     height: auto;
     cursor: pointer;
     opacity: ${p => p.opacity ? 1 : 0.5};
     transition: .5s opacity;
 
     @media only screen and (max-width: 1601px) {
-        width: 26px;
+        width:${p => p.size ? '22px' : '26px'};
     }
 `
 
@@ -111,12 +111,12 @@ const Header = (props) => {
     var setPosition = () => {
         const width = window.innerWidth
         if(location === "/lungs" && width < 1601) return -2
-        else if(location === "/teeth" && width < 1601) return 85
-        else if (location === "/tongue" && width < 1601) return 172
+        else if(location === "/teeth" && width < 1601) return 87
+        else if (location === "/tongue" && width < 1601) return 174
 
         else if(location === "/lungs" && width >= 1601) return 0
-        else if(location === "/teeth" && width >= 1601) return 150
-        else if (location === "/tongue" && width >= 1601) return 300
+        else if(location === "/teeth" && width >= 1601) return 155
+        else if (location === "/tongue" && width >= 1601) return 303
     }
 
     return <Container display={location === "/"}>
@@ -124,7 +124,7 @@ const Header = (props) => {
         
         <IconsContainer >
         <LinkContainer to="/lungs">
-        <Icon src={lungsIcon}  alt="Icon" opacity={location === "/lungs"} />        
+        <Icon src={lungsIcon} alt="Icon" opacity={location === "/lungs"} />        
         </LinkContainer>
 
         <LinkContainer to="/teeth">
@@ -132,7 +132,7 @@ const Header = (props) => {
         </LinkContainer>
 
         <LinkContainer to="/tongue">
-        <Icon src={mouthIcon} alt="Icon" opacity={location === "/tongue"} />
+        <Icon src={mouthIcon} size={true} alt="Icon" opacity={location === "/tongue"} />
         </LinkContainer>
 
         <UnderLine location={setPosition()}/>
