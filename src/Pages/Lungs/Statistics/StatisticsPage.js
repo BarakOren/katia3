@@ -274,11 +274,11 @@ const StatisticsPage = (props) => {
     ChangeAnimation={ChangeAnimation}
     />
 
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? CircleOneSizing() : CircleOneAnimationSizing()} opacity={0.7}/>
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? CircleTwoSizing() : CircleTwoAnimationSizing()} opacity={0.5}/>
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? CircleThreeSizing() : CircleThreeAnimationSizing()} opacity={0.3}/>
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? CircleFourSizing() : CircleFourAnimationSizing()} opacity={0.2}/>
-    <Glow opacity={animation} position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={ animation === null ? `24vw` : '21vw'} />
+    <Circle position={animation === null ? {top: "53%", left: "50%"} : focusPosition} size={animation === null ? CircleOneSizing() : CircleOneAnimationSizing()} opacity={0.7}/>
+    <Circle position={animation === null ? {top: "53%", left: "50%"} : focusPosition} size={animation === null ? CircleTwoSizing() : CircleTwoAnimationSizing()} opacity={0.5}/>
+    <Circle position={animation === null ? {top: "53%", left: "50%"} : focusPosition} size={animation === null ? CircleThreeSizing() : CircleThreeAnimationSizing()} opacity={0.3}/>
+    <Circle position={animation === null ? {top: "53%", left: "50%"} : focusPosition} size={animation === null ? CircleFourSizing() : CircleFourAnimationSizing()} opacity={0.2}/>
+    <Glow opacity={animation} position={animation === null ? {top: "53%", left: "50%"} : focusPosition} size={ animation === null ? `24vw` : '21vw'} />
     </ModelContainer>
 
     <LeftSideContainer 

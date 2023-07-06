@@ -17,12 +17,11 @@ const Backgroud = styled.img`
 
 const LineContainer = styled.div`
     width: 100vw;
-    height: 200vh;
+    height: 100vh;
     top: 50%;
-    right: -30vw;
-    transform: translateY(-50%);
+    right: 50%;
+    transform: translate(50%, -50%);
     position: absolute;
-    /* overflow: hidden; */
 
     @media only screen and (min-width: 1300px) {
         
@@ -46,8 +45,8 @@ const Sun = styled.div`
     height: 70vw;
     position: absolute;
     top: 50%;
-    right: -15vw;
-    transform: translateY(-50%);
+    right: 50%;
+    transform: translate(50%, -50%);
     background: radial-gradient(circle, rgba(205,109,29,1) 0%, rgba(205,109,29,0) 60%);
 `
 
@@ -57,7 +56,7 @@ const Gif = styled.img`
     left: 50%;
     width: 100%;
     height: auto;
-    transform: translate(-53%, -50%);
+    transform: translate(-50%, -50%);
 `
 
 
@@ -66,19 +65,19 @@ const IntroPage = () => {
 
     const lines = [
         {
-            size: 30,
+            size: 25,
             opacity: 1
         },
         {
-            size: 45,
+            size: 40,
             opacity: 0.60
         },
         {
-            size: 60,
+            size: 55,
             opacity: 0.40
         },
         {
-            size: 80,
+            size: 75,
             opacity: 0.20
         },
 
@@ -86,11 +85,11 @@ const IntroPage = () => {
 
     return <>
         <LineContainer>
-        <Gif src={gif} alt="gif" loop />
-        <div style={{position: "relative", width: "100%", height: "100%", overflow: "hidden"}}>
+        <div style={{position: "relative", width: "100%", height: "100%"}}>
         {lines.map(line => {return <Line size={line.size} opacity={line.opacity} />})}
         </div>
         </LineContainer>
+        <Gif src={gif} alt="gif" loop />
         <Sun />
     
         <WelcomeTo />

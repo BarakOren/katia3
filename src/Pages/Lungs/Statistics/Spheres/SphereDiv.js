@@ -70,8 +70,15 @@ const Precentage = styled.div`
 
   .symbol {
     position: absolute;
-    right: 0px;
+    right: -40px;
     top: 15px;
+  }
+
+  @media only screen and (max-width: 1600px) {
+    .symbol {
+      right: 0;
+    }
+
   }
  
 `
