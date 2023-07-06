@@ -40,13 +40,23 @@ const {totalValue} = props;
   //     <mesh geometry={nodes.Cube.geometry} material={materials['Material.002']} position={[0.894, 1.226, -4.031]} rotation={[0.128, 0, 0]} />
   //   </group>
   // )
+  const [opacity, setOpacity] = useState(1.0); 
+  
+  useEffect(() => {
+    setOpacity(color * (0.9 / 185))
+  }, [totalValue])
+
 
   return (
       <group {...props} dispose={null} ref={meshRef} position={[-0.3, -1, 0]}>
       <mesh 
       material-color={`hsl(${currentColor.h}, ${currentColor.s}%, ${currentColor.l}%)`}
       geometry={nodes.Cube.geometry} material={materials['Material.002']} rotation={[0.128, 0, 0]}>
-      <meshStandardMaterial map={texture}  />
+      <meshStandardMaterial map={texture} transparent opacity={opacity}  />
+      </mesh>
+      <mesh 
+      material-color={`hsl(${currentColor.h}, ${currentColor.s}%, ${currentColor.l}%)`}
+      geometry={nodes.Cube.geometry} material={materials['Material.002']} rotation={[0.128, 0, 0]}>
       </mesh>
    
     </group>

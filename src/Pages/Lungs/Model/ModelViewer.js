@@ -71,8 +71,8 @@ const ModelViewer = (props) => {
     <Canvas style={{width: '50vw', position: "absolute", top: '4%'}}>
     <ambientLight intensity={1} />
     
-<spotLight position={[10, 10, 10]} angle={1} penumbra={1} />
-<pointLight position={[10, 10, 10]} />
+    <spotLight position={[10, 10, 10]} angle={1} penumbra={1} />
+    <pointLight position={[10, 10, 10]} />
       <Suspense fallback={null}>
        <Model scale={[size, size, size]} totalValue={totalValue} />
       </Suspense>
