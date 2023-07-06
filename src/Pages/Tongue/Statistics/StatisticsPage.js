@@ -81,7 +81,7 @@ const Title = styled.p`
     animation-timing-function: cubic-bezier(0, 0.98, 0.6, 0.82);
     `}
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         font-size: 38px;
         line-height: 190%;
         left: 13vw;
@@ -93,7 +93,7 @@ const Span = styled.span`
     font-family: 'Amiri', serif;
     font-weight: 400;
     font-style: italic;
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         font-size: 38px;
     }
 `
@@ -125,7 +125,7 @@ const Thoughts = styled.div`
     opacity: ${p => p.opacity ? 1 : 0};
     transition: 3s all;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         bottom: 50px;
         padding-bottom: 5px;
         right: 50px;
@@ -195,34 +195,34 @@ const StatisticsPage = (props) => {
 
 
     const CircleOneSizing = () => {
-        return width < 1300 ? '24vw' : '32vw'
+        return width < 1601 ? '24vw' : '32vw'
     }
 
     const CircleTwoSizing = () => {
-        return width < 1300 ? '28vw' : '37vw'
+        return width < 1601 ? '28vw' : '37vw'
     }
 
     const CircleThreeSizing = () => {
-        return width < 1300 ? '32vw' : '43vw'
+        return width < 1601 ? '32vw' : '43vw'
     }
 
     const CircleFourSizing = () => {
-        return width < 1300 ? '36vw' : '48vw'
+        return width < 1601 ? '36vw' : '48vw'
     }
 // _________________
 
     const CircleOneAnimationSizing = () => {
-        return width < 1300 ? '20vw' : '28vw'
+        return width < 1601 ? '20vw' : '28vw'
     }
     
     const CircleTwoAnimationSizing = () => {
-        return width < 1300 ? '24vw' : '34vw'
+        return width < 1601 ? '24vw' : '34vw'
     }
     const CircleThreeAnimationSizing = () => {
-        return width < 1300 ? '28vw' : '40vw'
+        return width < 1601`` ? '28vw' : '40vw'
     }
     const CircleFourAnimationSizing = () => {
-        return width < 1300 ? '32vw' : '46vw'
+        return width < 1601 ? '32vw' : '46vw'
     }
 
 
@@ -270,11 +270,11 @@ const StatisticsPage = (props) => {
     ChangeAnimation={ChangeAnimation}
     />
 
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? CircleOneSizing() : CircleOneAnimationSizing()} opacity={0.7}/>
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? CircleTwoSizing() : CircleTwoAnimationSizing()} opacity={0.5}/>
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? CircleThreeSizing() : CircleThreeAnimationSizing()} opacity={0.3}/>
-    <Circle position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={animation === null ? CircleFourSizing() : CircleFourAnimationSizing()} opacity={0.2}/>
-    <Glow opacity={animation} position={animation === null ? {top: "50%", left: "50%"} : focusPosition} size={ animation === null ? `24vw` : '21vw'} />
+    <Circle position={animation === null ? {top: "53%", left: "50%"} : focusPosition} size={animation === null ? CircleOneSizing() : CircleOneAnimationSizing()} opacity={0.7}/>
+    <Circle position={animation === null ? {top: "53%", left: "50%"} : focusPosition} size={animation === null ? CircleTwoSizing() : CircleTwoAnimationSizing()} opacity={0.5}/>
+    <Circle position={animation === null ? {top: "53%", left: "50%"} : focusPosition} size={animation === null ? CircleThreeSizing() : CircleThreeAnimationSizing()} opacity={0.3}/>
+    <Circle position={animation === null ? {top: "53%", left: "50%"} : focusPosition} size={animation === null ? CircleFourSizing() : CircleFourAnimationSizing()} opacity={0.2}/>
+    <Glow opacity={animation} position={animation === null ? {top: "53%", left: "50%"} : focusPosition} size={ animation === null ? `24vw` : '21vw'} />
     </ModelContainer>
 
     <LeftSideContainer animation={animation} bodyRef={bodyRef} setAnimation={setAnimation} leftSideToggle={leftSideToggle} setLeftSideToggle={setLeftSideToggle} setAfterEverything={setAfterEverything} animationText={animationText}  />

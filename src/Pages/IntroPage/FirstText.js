@@ -17,7 +17,7 @@ const Text = styled.p`
     z-index: 1;
     line-height: 96px;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         font-size: 3vw;
         line-height: 73px;
     }

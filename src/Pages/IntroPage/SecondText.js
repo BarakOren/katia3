@@ -14,7 +14,7 @@ const Text = styled.p`
     font-family: 'Amiri', sans-serif;
     font-style: italic;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         font-size: 3.5vw;
     }
 `
@@ -41,7 +41,7 @@ const StartButton = styled(Link)`
         box-shadow: inset 0px -2px 12px black;
     }
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         font-size: 16px;
         padding: 10px 32px;
         border-radius: 12px;

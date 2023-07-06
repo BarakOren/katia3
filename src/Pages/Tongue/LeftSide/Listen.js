@@ -31,7 +31,7 @@ const Button = styled.button`
         z-index: -1;
     }
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         width: 80px;
         height: 30px;
         margin-top: 12px;

@@ -23,7 +23,7 @@ const LineContainer = styled.div`
     transform: translate(50%, -50%);
     position: absolute;
 
-    @media only screen and (min-width: 1300px) {
+    @media only screen and (min-width: 1601px) {
         
     }
 `

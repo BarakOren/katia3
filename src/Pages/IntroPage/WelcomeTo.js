@@ -19,11 +19,11 @@ const Title = styled.h1`
     text-align: center;
     letter-spacing: 60px;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         letter-spacing: 30px;
     }
 
-    @media only screen and (max-width: 1200px) {
+    @media only screen and (max-width: 1601px) {
         letter-spacing: 20px;
         color: beige;
     }

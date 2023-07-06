@@ -100,7 +100,7 @@ const SphereDiv = (props) => {
     const {ChangeAnimation, animation, SphereAnimation, Divsizing, size, totalValue, position, name} = props;
 
     const width = window.innerWidth
-    const addPxToDiv = width < 1601 ? 200 : 310
+    const addPxToDiv = width < 1601 ? 200 : 260
     
     const location = useLocation().pathname
 

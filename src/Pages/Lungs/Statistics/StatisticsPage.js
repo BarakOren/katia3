@@ -199,34 +199,34 @@ const StatisticsPage = (props) => {
     }, [animation])
 
     const CircleOneSizing = () => {
-        return width < 1601 ? '24vw' : '32vw'
+        return width < 1601 ? '24vw' : '30vw'
     }
 
     const CircleTwoSizing = () => {
-        return width < 1601 ? '28vw' : '37vw'
+        return width < 1601 ? '28vw' : '35vw'
     }
 
     const CircleThreeSizing = () => {
-        return width < 1601 ? '32vw' : '43vw'
+        return width < 1601 ? '32vw' : '41vw'
     }
 
     const CircleFourSizing = () => {
-        return width < 1601 ? '36vw' : '48vw'
+        return width < 1601 ? '36vw' : '45vw'
     }
 // _________________
 
     const CircleOneAnimationSizing = () => {
-        return width < 1601 ? '20vw' : '28vw'
+        return width < 1601 ? '20vw' : '25vw'
     }
     
     const CircleTwoAnimationSizing = () => {
-        return width < 1600 ? '24vw' : '34vw'
+        return width < 1600 ? '24vw' : '31vw'
     }
     const CircleThreeAnimationSizing = () => {
-        return width < 1601 ? '28vw' : '40vw'
+        return width < 1601 ? '28vw' : '37vw'
     }
     const CircleFourAnimationSizing = () => {
-        return width < 1601 ? '32vw' : '46vw'
+        return width < 1601 ? '32vw' : '43vw'
     }
 
 
