@@ -12,11 +12,11 @@ const {totalValue} = props;
   let color = parseInt(totalValue.NumberOfCig) + parseInt(totalValue.SmokingPeriod) + parseInt(totalValue.Age)
   const meshRef = useRef();
 
-  useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += 0.0095;
-    }
-  });
+  // useFrame(() => {
+  //   if (meshRef.current) {
+  //     meshRef.current.rotation.y += 0.0055;
+  //   }
+  // });
 
   let devided = 70 - color / 4
 
@@ -56,7 +56,7 @@ const {totalValue} = props;
 
 const ModelViewer = (props, { modelPath, scale = 1, position = [0, 0, 0] }) => {
   const {totalValue} = props;
-  const size = 0.7
+  const size = 0.9
   return (
     <Canvas style={{width: '59vw', position: "absolute", top: '4%'}}>
     <ambientLight intensity={1.5} />

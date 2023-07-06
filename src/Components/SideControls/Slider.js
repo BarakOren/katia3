@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import {useState} from "react";
-
+import { useLocation } from "react-router-dom";
 
 const Container = styled.div`
     width: 90%;
@@ -22,7 +22,8 @@ const Input = styled.input`
 &::-webkit-slider-runnable-track {
   height: 100%;
   border-radius: 1px;
-  background-image: linear-gradient(#D37419, #D37419);
+  background-image: ${p => `linear-gradient(${p.color}, ${p.color})`};
+   /* linear-gradient(#D37419, #D37419); */
   background-size: ${p => `${p.progress}% 100%`};
   background-repeat: no-repeat;
   outline: none;
@@ -54,6 +55,20 @@ const Input = styled.input`
 
 const Slider = (props) => {
 
+    const location = useLocation().pathname
+
+    const setColor = () => {
+      if(location === "/lungs"){
+          return '#D37419'
+      }
+      else if(location === "/teeth"){
+        return '#FF499B'
+      }
+      else if(location === "/tongue"){
+        return '#43D8ED'
+      }
+    }
+
     const {details, value, setValue, setTotalValue, totalValue} = props
 
     const progress = (value / details.max) * 100;
@@ -75,6 +90,7 @@ const Slider = (props) => {
     max={details.max}
     onChange={handleChange}
     value={value}
+    color={setColor()}
     />
 
     </Container>

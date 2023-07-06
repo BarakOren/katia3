@@ -28,11 +28,11 @@ const {totalValue} = props;
       })
   }, [totalValue])
 
-  useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += 0.0095;
-    }
-  });
+  // useFrame(() => {
+  //   if (meshRef.current) {
+  //     meshRef.current.rotation.y += 0.0055;
+  //   }
+  // });
 
   // material-color={`hsl(${currentColor.h}, ${currentColor.s}%, ${currentColor.l}%)`}
 
@@ -49,11 +49,14 @@ const {totalValue} = props;
   }, [totalValue])
 
   return (
-    <group {...props} dispose={null}>
+    <group ref={meshRef} {...props} dispose={null} position={[0, -0.3, 0]}>
       <group position={[0.077, 0.371, -0.766]} rotation={[-Math.PI, -0.983, 0]} scale={0.939}>
         <mesh geometry={nodes.Torus001_1.geometry} material={materials.gums} />
         <mesh geometry={nodes.Torus001_2.geometry} material={materials['Material.001']} />
       </group>
+      <mesh geometry={nodes.Cube001.geometry} material={materials.teeth} position={[0.128, 0.36, -0.638]} rotation={[Math.PI, -0.983, -0.083]} scale={-0.159}>
+         <meshStandardMaterial map={sickTexture} transparent opacity={opacity} />
+      </mesh>
       <mesh geometry={nodes.Cube001.geometry} material={materials.teeth} position={[0.128, 0.36, -0.638]} rotation={[Math.PI, -0.983, -0.083]} scale={-0.159} />
     </group>
   )
@@ -107,7 +110,7 @@ const {totalValue} = props;
 // totalValue={totalValue}
 const ModelViewer = (props) => {
   const {totalValue} = props;
-  const size = 1.5
+  const size = 1.1
   return (
     <Canvas style={{width: '50vw', position: "absolute", top: '4%'}}>
     <ambientLight intensity={0.2} />

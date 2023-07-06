@@ -21,11 +21,11 @@ let color = parseInt(totalValue.NumberOfCig) + parseInt(totalValue.SmokingPeriod
     meshRef.current.rotation.y = 3.1;
   }, [])
 
-  useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += 0.0095;
-    }
-  });
+  // useFrame(() => {
+  //   if (meshRef.current) {
+  //     meshRef.current.rotation.y += 0.0095;
+  //   }
+  // });
 
   const [opacity, setOpacity] = useState(1.0); 
   
@@ -76,7 +76,7 @@ const ModelViewer = (props) => {
       <Suspense fallback={null}>
        <Model scale={[size, size, size]} totalValue={totalValue} />
       </Suspense>
-
+      <OrbitControls />
     </Canvas>
   );
 };

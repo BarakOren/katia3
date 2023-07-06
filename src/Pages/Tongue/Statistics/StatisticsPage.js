@@ -219,7 +219,7 @@ const StatisticsPage = (props) => {
         return width < 1601 ? '24vw' : '34vw'
     }
     const CircleThreeAnimationSizing = () => {
-        return width < 1601`` ? '28vw' : '40vw'
+        return width < 1601 ? '28vw' : '40vw'
     }
     const CircleFourAnimationSizing = () => {
         return width < 1601 ? '32vw' : '46vw'

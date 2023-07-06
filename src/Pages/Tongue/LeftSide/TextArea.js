@@ -21,6 +21,7 @@ const Title = styled.p`
     margin: 0;
     text-align: left;
     white-space: nowrap;
+    margin: 0 22px 0 0px;
 
     @media only screen and (max-width: 1601px) {
       font-size: 60px;
