@@ -282,7 +282,7 @@ const AfterEverything = (props) => {
     </TextContainer>
   </TextsContainer>
 
-    <NextButton onClick={() => stepForward()}  opacity={afterEverything}>Scroll</NextButton>
+    <NextButton onClick={() => stepForward()}  opacity={afterEverything}>Next</NextButton>
 
     </Container>
 }

@@ -51,7 +51,7 @@ const FirstText = () => {
     return <Container>
     <Circle />
     <Text>
-    Smoking is a social problem of society, both for smokers and non - smokers. For the first - the problem is to quit smoking, for the second - to avoid the influence of the smking society.
+    Smoking is a social problem of society, both for smokers and non - smokers. For the first - the problem is to quit smoking, for the second - to avoid the influence of the smoking society.
     </Text>
     </Container>
 }

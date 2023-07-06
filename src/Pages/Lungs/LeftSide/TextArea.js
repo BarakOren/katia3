@@ -18,9 +18,10 @@ const Title = styled.p`
     font-family: 'Libre Franklin';
     font-weight: 400;
     font-size: 100px;
-    margin: 0;
+    margin: 0 22px 0 0px;
     text-align: left;
     white-space: nowrap;
+
 
     @media only screen and (max-width: 1600px) {
       font-size: 60px;
