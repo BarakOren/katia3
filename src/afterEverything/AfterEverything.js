@@ -120,7 +120,7 @@ const Text = styled.h4`
     font-weight: 800;
     text-align: inherit;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
       font-size: 60px;
     }
 `
@@ -136,7 +136,7 @@ const ItalicOne = styled.p`
   line-height: 76.65px;
   margin-top: 20px;
 
-  @media only screen and (max-width: 1300px) {
+  @media only screen and (max-width: 1601px) {
     margin-top: 0;
     font-size: 30px;
   }
@@ -163,7 +163,7 @@ const ItalicTwo = styled.p`
   line-height: 76.65px;
   margin-top: 20px;
 
-  @media only screen and (max-width: 1300px) {
+  @media only screen and (max-width: 1601px) {
     font-size: 36px;
     line-height: 50px;
     }
@@ -199,7 +199,7 @@ const NextButton = styled.button`
     }
 
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
       width: 50px;
     height: 50px;
     font-size: 16px;

@@ -8,7 +8,7 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: flex-start;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1600px) {
       margin-top: 50px;
     }
 `
@@ -22,7 +22,7 @@ const Title = styled.p`
     text-align: left;
     white-space: nowrap;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1600px) {
       font-size: 60px;
     }
 `
@@ -42,7 +42,7 @@ const Text = styled.p`
     text-align: left;
     padding-left: 16px;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1600px) {
       margin-top: 20px;
       padding-left: 16px;
       font-size: 20px;

@@ -80,7 +80,7 @@ const IconDiv = styled.div`
       opacity: ${p => p.muted ? 1 : 0};
     }
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
           top: 20px;
         right: 30px;
         width: 30px;

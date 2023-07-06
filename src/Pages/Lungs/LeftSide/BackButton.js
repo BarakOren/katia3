@@ -33,7 +33,7 @@ const Icon = styled.img`
     box-shadow: ${p => p.isPlaying && "0 0 15px rgb(255,255,255,0.8)"};
     transition: .5s box-shadow;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         top: 70px;
         left: 30px;
     }

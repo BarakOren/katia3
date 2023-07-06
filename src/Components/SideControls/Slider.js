@@ -41,7 +41,7 @@ const Input = styled.input`
   outline: none;
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1601px) {
     height: 2px;
   }
 
