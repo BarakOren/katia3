@@ -71,7 +71,7 @@ const Title = styled.p`
     left: 10vw;
     letter-spacing: 12px;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1600px) {
         font-size: 38px;
         line-height: 190%;
         left: 13vw;
@@ -84,7 +84,7 @@ const Span = styled.span`
     font-weight: 400;
     font-style: italic;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1600px) {
         font-size: 38px;
     }
 `
@@ -104,11 +104,11 @@ const LungsPage = (props) => {
     </BackgroundContainer>
 
 
-    <Circle size={width < 1300 ? 24 : 32} opacity={0.7}/>
-    <Circle size={width < 1300 ? 28 : 37} opacity={0.5}/>
-    <Circle size={width < 1300 ? 32 : 43} opacity={0.3}/>
-    <Circle size={width < 1300 ? 36 : 48} opacity={0.2}/>
-    <Glow size={width < 1300 ? 30 : 40} width={width < 1300}/>
+    <Circle size={width < 1601 ? 24 : 32} opacity={0.7}/>
+    <Circle size={width < 1601 ? 28 : 37} opacity={0.5}/>
+    <Circle size={width < 1601 ? 32 : 43} opacity={0.3}/>
+    <Circle size={width < 1601 ? 36 : 48} opacity={0.2}/>
+    <Glow size={width < 1601 ? 30 : 40} width={width < 1601}/>
 
 
     <Title>These<br />Are<br />Your<br /><Span>lungs</Span></Title>

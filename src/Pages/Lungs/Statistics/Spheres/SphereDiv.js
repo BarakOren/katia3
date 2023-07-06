@@ -48,7 +48,7 @@ const Name = styled.p`
   margin: 0;
 
   
-  @media only screen and (max-width: 1300px) {
+  @media only screen and (max-width: 1600px) {
     font-size: 150%;
   }
 `
@@ -93,7 +93,7 @@ const SphereDiv = (props) => {
     const {ChangeAnimation, animation, SphereAnimation, Divsizing, size, totalValue, position, name} = props;
 
     const width = window.innerWidth
-    const addPxToDiv = width < 1300 ? 200 : 310
+    const addPxToDiv = width < 1601 ? 200 : 310
     
     const location = useLocation().pathname
 
@@ -141,13 +141,13 @@ const SphereDiv = (props) => {
     
     <Precentage>
     <animated.p
-    style={{fontSize: width < 1300 ? '70px' : '120px'}}
+    style={{fontSize: width < 1601 ? '70px' : '120px'}}
     // style={{fontSize: `${26 + Divsizing}px`}}
     >{Math.floor(Divsizing) > 99 ? 100 : Math.floor(Divsizing)}</animated.p>
     
     <animated.p 
     // style={{fontSize: `${Divsizing < 50 ? Divsizing : Divsizing - 30}px`}}
-    style={{fontSize: width < 1300 ? '16px' : '30px', fontWeight: 700}}
+    style={{fontSize: width < 1601 ? '16px' : '30px', fontWeight: 700}}
     className="symbol">%</animated.p>
     
     </Precentage>

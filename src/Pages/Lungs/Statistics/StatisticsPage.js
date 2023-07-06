@@ -81,7 +81,7 @@ const Title = styled.p`
     animation-timing-function: cubic-bezier(0, 0.98, 0.6, 0.82);
     `}
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1600px) {
         font-size: 38px;
         line-height: 190%;
         left: 13vw;
@@ -93,7 +93,7 @@ const Span = styled.span`
     font-family: 'Amiri', serif;
     font-weight: 400;
     font-style: italic;
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1600px) {
         font-size: 38px;
     }
 `
@@ -125,7 +125,7 @@ const Thoughts = styled.div`
     opacity: ${p => p.opacity ? 1 : 0};
     transition: 3s all;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1600px) {
         bottom: 50px;
         padding-bottom: 5px;
         right: 50px;
@@ -199,34 +199,34 @@ const StatisticsPage = (props) => {
     }, [animation])
 
     const CircleOneSizing = () => {
-        return width < 1300 ? '24vw' : '32vw'
+        return width < 1601 ? '24vw' : '32vw'
     }
 
     const CircleTwoSizing = () => {
-        return width < 1300 ? '28vw' : '37vw'
+        return width < 1601 ? '28vw' : '37vw'
     }
 
     const CircleThreeSizing = () => {
-        return width < 1300 ? '32vw' : '43vw'
+        return width < 1601 ? '32vw' : '43vw'
     }
 
     const CircleFourSizing = () => {
-        return width < 1300 ? '36vw' : '48vw'
+        return width < 1601 ? '36vw' : '48vw'
     }
 // _________________
 
     const CircleOneAnimationSizing = () => {
-        return width < 1300 ? '20vw' : '28vw'
+        return width < 1601 ? '20vw' : '28vw'
     }
     
     const CircleTwoAnimationSizing = () => {
-        return width < 1300 ? '24vw' : '34vw'
+        return width < 1600 ? '24vw' : '34vw'
     }
     const CircleThreeAnimationSizing = () => {
-        return width < 1300 ? '28vw' : '40vw'
+        return width < 1601 ? '28vw' : '40vw'
     }
     const CircleFourAnimationSizing = () => {
-        return width < 1300 ? '32vw' : '46vw'
+        return width < 1601 ? '32vw' : '46vw'
     }
 
 

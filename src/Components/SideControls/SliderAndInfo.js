@@ -11,7 +11,7 @@ const Container = styled.div`
     opacity: ${p => p.opacity ? '1' : '0'};
     transition: 1s opacity;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         height: 25%;
     }
 `
@@ -31,7 +31,7 @@ const Text = styled.p`
     width: 40%;
     margin: 0;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         font-size: 16px;
     }
 `
@@ -45,7 +45,7 @@ const Number = styled.p`
     text-align: right;
     margin-top: -10px;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         font-size: 400%;
     }
     

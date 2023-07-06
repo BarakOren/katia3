@@ -23,7 +23,7 @@ const Container = styled.div`
     transition: ${p => p.opacity ? '3s all ease-in-out' : '2s all ease-in-out'};
     opacity: ${p => p.opacity ? 0 : 1};
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         width: 40vh;
         height: 70vh;
         top: 53%;
@@ -45,7 +45,7 @@ const Icon = styled.img`
     transition: 2s all;
 
     
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         top: 20px;
         left: 30px;
         width: 10px;

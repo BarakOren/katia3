@@ -19,7 +19,7 @@ const Container = styled.div`
     transition: 3s opacity ease-in-out;
     z-index: 100;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         height: 70px;
     }
 `
@@ -38,7 +38,7 @@ const About = styled(Link)`
     cursor: pointer;
     width: 33%;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         font-size: 16px;
     }
 `
@@ -53,7 +53,7 @@ const IconsContainer = styled.div`
     opacity: ${p => p.display ? 0 : 1};
     transition: 3s opacity ease-in-out;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         width: 200px;
     }
 
@@ -66,7 +66,7 @@ const Icon = styled.img`
     opacity: ${p => p.opacity ? 1 : 0.5};
     transition: .5s opacity;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         width: 26px;
     }
 `
@@ -78,7 +78,7 @@ const LinkContainer = styled(Link)`
     align-items: center;
     justify-content: center;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         /* width: 30px; */
     }
 `
@@ -92,7 +92,7 @@ const UnderLine = styled.div`
     background-color: white;
     transition: .5s left;
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1601px) {
         width: 30px;
         bottom: 13px;
         height: 1px;
@@ -110,13 +110,13 @@ const Header = (props) => {
 
     var setPosition = () => {
         const width = window.innerWidth
-        if(location === "/lungs" && width < 1300) return -2
-        else if(location === "/teeth" && width < 1300) return 85
-        else if (location === "/tongue" && width < 1300) return 172
+        if(location === "/lungs" && width < 1601) return -2
+        else if(location === "/teeth" && width < 1601) return 85
+        else if (location === "/tongue" && width < 1601) return 172
 
-        else if(location === "/lungs" && width >= 1300) return 0
-        else if(location === "/teeth" && width >= 1300) return 150
-        else if (location === "/tongue" && width >= 1300) return 300
+        else if(location === "/lungs" && width >= 1601) return 0
+        else if(location === "/teeth" && width >= 1601) return 150
+        else if (location === "/tongue" && width >= 1601) return 300
     }
 
     return <Container display={location === "/"}>

@@ -40,8 +40,7 @@ let color = parseInt(totalValue.NumberOfCig) + parseInt(totalValue.SmokingPeriod
   const roughnessMap  = useTexture('/katia3/lungsSickTexture.png');
   const threesixtytexture = useTexture("/katia3/2.png")
 
-
-return ( <group {...props} dispose={null} ref={meshRef} position={[-0.8, 0, 1]} >
+return ( <group {...props} dispose={null} ref={meshRef} position={[-0, 0, 1]} >
     <mesh 
     renderOrder={1} ref={sickRef} geometry={nodes.Circle.geometry} material={materials['Material.003']} position={[-0.197, -0.022, 0.07]} scale={0.152}>
     <meshStandardMaterial map={sickTexture} transparent opacity={opacity} />

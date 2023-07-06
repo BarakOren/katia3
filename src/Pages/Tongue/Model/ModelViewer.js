@@ -7,6 +7,7 @@ import { useFrame, useLoader} from '@react-three/fiber'
 
 export function Model(props) {
 const { nodes, materials } = useGLTF('/katia3/tongue.glb')
+
 const {totalValue} = props;
   let color = parseInt(totalValue.NumberOfCig) + parseInt(totalValue.SmokingPeriod) + parseInt(totalValue.Age)
   const meshRef = useRef();
@@ -34,6 +35,12 @@ const {totalValue} = props;
 
   const texture = useTexture('/katia3/togue-texture.png');
 
+  // return (
+  //   <group {...props} dispose={null}>
+  //     <mesh geometry={nodes.Cube.geometry} material={materials['Material.002']} position={[0.894, 1.226, -4.031]} rotation={[0.128, 0, 0]} />
+  //   </group>
+  // )
+
   return (
       <group {...props} dispose={null} ref={meshRef} position={[-0.3, -1, 0]}>
       <mesh 
@@ -45,19 +52,13 @@ const {totalValue} = props;
     </group>
   )
 }
-// <mesh 
-// ref={sickRef}
-// geometry={nodes.Cube.geometry} material={materials['Material.002']} rotation={[0.128, 0, 0]}>
-// <meshStandardMaterial map={sickTexture} opacity={opacity}  />
-// </mesh>
 
 
-// totalValue={totalValue}
 const ModelViewer = (props, { modelPath, scale = 1, position = [0, 0, 0] }) => {
   const {totalValue} = props;
   const size = 0.7
   return (
-    <Canvas style={{width: '100vw', position: "absolute", top: '4%'}}>
+    <Canvas style={{width: '59vw', position: "absolute", top: '4%'}}>
     <ambientLight intensity={1.5} />
     <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
     <pointLight position={[-10, -10, -10]} />
