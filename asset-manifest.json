@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/katia3/static/css/main.e6c13ad2.css",
-    "main.js": "/katia3/static/js/main.79d78644.js",
+    "main.js": "/katia3/static/js/main.1b75d735.js",
     "static/media/intro-background.gif": "/katia3/static/media/intro-background.ed2c02cdc8cd909e2ff8.gif",
     "static/media/background-music.mp3": "/katia3/static/media/background-music.4d972fda86984726a2e2.mp3",
     "static/media/tongueBG.mp4": "/katia3/static/media/tongueBG.d190439d6dfd34b59455.mp4",
@@ -28,10 +28,10 @@
     "static/media/arrow.svg": "/katia3/static/media/arrow.d997264c553077e17fd820e02a2b7a98.svg",
     "static/media/leftsidearrow.svg": "/katia3/static/media/leftsidearrow.3c3211736d26b8aaa8f22604797e9671.svg",
     "main.e6c13ad2.css.map": "/katia3/static/css/main.e6c13ad2.css.map",
-    "main.79d78644.js.map": "/katia3/static/js/main.79d78644.js.map"
+    "main.1b75d735.js.map": "/katia3/static/js/main.1b75d735.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.79d78644.js"
+    "static/js/main.1b75d735.js"
   ]
 }
